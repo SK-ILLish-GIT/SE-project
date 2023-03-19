@@ -1,0 +1,335 @@
+:root {
+  /* color */
+  --color-primary: #55c57a;
+  --color-primary-light: #7ed56f;
+  --color-primary-dark: #28b485;
+
+  --color-secondary-light: #ffb900;
+  --color-secondary-dark: #ff7730;
+
+  --color-tertiary-light: #2998ff;
+  --color-tertiary-dark: #5643fa;
+
+  --color-grey-light-1: #f7f7f7;
+  --color-grey-light-2: #eee;
+
+  --color-grey-dark: #777;
+  --color-grey-dark-2: #999;
+  --color-grey-dark-3: #333;
+
+  --color-white: #fff;
+  --color-black: #000000;
+  /* fonts */
+  --default-font-size: 1.6rem;
+  /* GRID */
+  --grid-width: 114rem;
+  --gutter-vertical: 8rem;
+  --gutter-vertical-small: 6rem;
+  --gutter-horizontal: 6rem;
+}
+
+body {
+  box-sizing: border-box;
+  padding: 2.5rem;
+}
+
+.main_c {
+  background-color: var(--color-grey-light-2);
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  line-height: 1;
+  color: #777;
+}
+
+.sec_reg {
+  padding: 3% 0;
+  height: 90vh;
+  background-image: -webkit-gradient(
+    linear,
+    left top,
+    right bottom,
+    from(#7ed56f),
+    to(#28b485)
+  );
+  background-image: linear-gradient(to right bottom, #7ed56f, #28b485);
+  clip-path: polygon(0 0, 100% 0, 100% 80%, 0% 100%);
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 80%, 0% 100%);
+}
+.sec_reg2 {
+  background-image: -webkit-gradient(
+    linear,
+    left top,
+    right bottom,
+    from(#7ed56f),
+    to(#28b485)
+  );
+  background-image: linear-gradient(
+    to right bottom,
+    var(--color-grey-light-2),
+    var(--color-grey-light-2)
+  );
+  margin-bottom: 8vh;
+}
+.sec_reg3 {
+  padding: 3% 0;
+  height: 120vh;
+  background-image: -webkit-gradient(
+    linear,
+    left top,
+    right bottom,
+    from(#7ed56f),
+    to(#28b485)
+  );
+  background-image: linear-gradient(to right bottom, #7ed56f, #28b485);
+  /* clip-path: polygon(0 0, 100% 0, 100% 80%, 0% 100%); */
+  -webkit-clip-path: polygon(0 20%, 100% 0, 100% 80%, 0% 100%);
+}
+
+.sec_reg4 {
+  background-image: -webkit-gradient(
+    linear,
+    left top,
+    right bottom,
+    from(#7ed56f),
+    to(#28b485)
+  );
+  background-image: linear-gradient(
+    to right bottom,
+    var(--color-grey-light-2),
+    var(--color-grey-light-2)
+  );
+  margin-bottom: 8vh;
+  margin-top: 15%;
+}
+
+.row {
+  max-width: 100%;
+  margin: 0 8%;
+}
+.row2 {
+  max-width: 100%;
+  margin: 0 8%;
+}
+
+.center {
+  height: 70vh;
+  background-image: linear-gradient(
+      105deg,
+      rgba(255, 255, 255, 0.9) 0%,
+      rgba(255, 255, 255, 0.9) 50%,
+      transparent 50%
+    ),
+    url(./alexandr-bormotin-jj3PpeBIlLA-unsplash.jpg);
+  background-size: 100% 100%;
+  border-radius: 3px;
+}
+.center3 {
+  height: 70vh;
+  margin-top: 15%;
+
+  background-image: linear-gradient(
+      105deg,
+      rgba(255, 255, 255, 0.9) 0%,
+      rgba(255, 255, 255, 0.9) 50%,
+      transparent 50%
+    ),
+    url(./federico-bottos-AG3ZkAsPxY0-unsplash.jpg);
+  background-size: 100% 100%;
+  border-radius: 3px;
+}
+
+.frm {
+  /* height: 300px; */
+  width: 50%;
+  padding-left: 6%;
+  /* padding: 6%; */
+}
+.frm2 {
+  position: relative;
+  float: right;
+  width: 40%;
+  padding-right: 6%;
+}
+
+.reg_cl {
+  margin-bottom: 1vh !important;
+}
+.reg_cl2 {
+  margin-bottom: 1vh !important;
+  text-align: right;
+}
+
+.reg {
+  font-size: 5.5vh;
+  text-transform: uppercase;
+  font-weight: 700;
+  display: inline-block;
+  background-image: linear-gradient(to right, #7ed56f, #28b485);
+  -webkit-background-clip: text;
+  color: transparent;
+  letter-spacing: 0.2vh;
+  transition: all 0.2s;
+}
+.reg2 {
+  font-size: 5.5vh;
+  text-transform: uppercase;
+  margin-bottom: 2vh;
+  font-weight: 700;
+  display: inline-block;
+  background-image: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0.9),
+    rgba(255, 255, 255, 0.9)
+  );
+  -webkit-background-clip: text;
+  color: transparent;
+  letter-spacing: 0.2vh;
+  transition: all 0.2s;
+  text-align: right;
+}
+#u_mat{
+  float: right;
+  margin-bottom: 4vh;
+  width: 51vh;
+}
+
+.f_input {
+  font-size: 2.5vh;
+  font-family: inherit;
+  color: inherit;
+  padding: 1.5vh 3vh;
+  border-radius: 3px;
+  width: 45vh;
+  border: none;
+  border-bottom: 3px solid transparent;
+  display: block;
+  transition: all 0.3s;
+}
+.f_input2 {
+  font-size: 2.5vh;
+  font-family: inherit;
+  color: inherit;
+  padding: 1.5vh 3vh;
+  border-radius: 3px;
+  width: 45vh;
+  border: none;
+  border-bottom: 3px solid transparent;
+  display: block;
+  transition: all 0.3s;
+  /* position: relative; */
+  float: right;
+}
+.f_r {
+  margin-bottom: 4vh;
+}
+
+#u_gender {
+  width: 60%;
+}
+
+form {
+  display: block;
+  height: 400px;
+}
+.f_e {
+  /* width: 30vh; */
+  border-radius: 3px;
+}
+
+.f_e:not(:last-child) {
+  margin-bottom: 4vh;
+}
+
+.btn,
+.btn:link,
+.btn:visited {
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 2vh 4vh;
+  display: inline-block;
+  border-radius: 10%;
+  transition: all 0.2s;
+  position: relative;
+  font-size: 2vh;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  background-color: #55c57a;
+  color: #fff;
+}
+
+.reg:hover {
+  transform: skewY(-2deg) skewX(-15deg) scale(1.1);
+  text-shadow: 0.5rem 1rem 2rem rgba(0, 0, 0, 0.2);
+}
+.reg2:hover {
+  transform: skewY(2deg) skewX(15deg) scale(1.1);
+  text-shadow: 0.5rem 1rem 2rem rgba(0, 0, 0, 0.2);
+}
+
+.radi{
+  width: 49%;
+  display: inline-block;
+}
+.rad_but_in{
+  display: none;
+}
+.rad_but_lab{
+  font-size: 1.6rem;
+  cursor: pointer;
+  position: relative;
+  padding-left: 4.5rem
+}
+.rad_but{
+  height: 3rem;
+    width: 3rem;
+    border: 5px solid #55c57a;
+    border-radius: 50%;
+    display: inline-block;
+    position: absolute;
+    left: 0;
+    top: -0.4rem;
+}
+
+.heading {
+  display: block;
+  font-size: 4rem;
+  font-weight: 400;
+  letter-spacing: 1rem;
+  text-transform: uppercase;
+  font-family: lato;
+  font-weight: bold;
+  animation-name: moveInLeft;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
+  text-align: center;
+  /* color: white; */
+  margin-bottom: 20px;
+}
+.heading-secondary {
+  font-size: 3.5rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  display: block;
+  background-image: linear-gradient(to right, #7ed56f, #28b485);
+  -webkit-background-clip: text;
+  text-align: center;
+
+  color: transparent;
+  letter-spacing: 0.2rem;
+  transition: all 0.2s;
+}
+
+.center2 {
+  margin-top: 40px;
+  height: 70vh;
+  background-image: linear-gradient(
+      -105deg,
+      /* rgba(255, 255, 255, 0) 0%, */ rgba(126, 213, 111, 0.8) 0%,
+      rgba(40, 180, 133, 0.8) 50%,
+      transparent 50%
+    ),
+    url(./Zugpsitze_mountain.jpg);
+  background-size: 100% 100%;
+  border-radius: 3px;
+}
