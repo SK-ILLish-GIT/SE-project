@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="main-content">
+        <nav class="navbar">
+            <div id="myNav" class="overlay">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                <div class="overlay-content">
+                    <a href="#">About</a>
+                    <a href="#">Services</a>
+                    <a href="#">Clients</a>
+                    <a href="#">Contact</a>
+                </div>
+            </div>
+            <div class="header__logo-box">
+                <img src="/Home/img/logo-green-1x.png" alt="Logo" class="header__logo">
+            </div>
+            <span style="font-size:45px;cursor:pointer" onclick="openNav()">&#9776;</span>
+        </nav>
+        <header class="header">
+
+            <div class="header__text-box">
+                <h1 class="heading-primary">
+                    <span class="heading-primary--main">name</span>
+                    <span class="heading-primary--sub">Lorem, ipsum dolor.</span>
+                </h1>
+
+                <a href="#section-tours" class="btn btn--white btn--animated">Discover students</a>
+            </div>
+        </header>
+        <section class="section-about">
+            <div class="u-center-text u-margin-bottom-big">
+                <h2 class="heading-secondary">
+                    Discover students
+                </h2>
+                <h3 class="heading-tertiary">
+                    by Name, Roll No, Class, Section, Hobby, Sports etc.
+                </h3>
+            </div>
+
+            <div class="row">
+                <div class="col-1-of-2">
+                    <div class="container">
+                        <div class="searchInput">
+                            <input type="text" placeholder="Search By anything">
+                            <div class="resultBox">
+                                <!-- here list are inserted from javascript -->
+                            </div>
+                            <!-- <div class="icon"><i class="fas fa-search"></i></div> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="col-1-of-2">
+                    <div class="composition">
+
+                        <img srcset="img/nat-1.jpg 300w, img/nat-1-large.jpg 1000w"
+                            sizes="(max-width: 56.25em) 20vw, (max-width: 37.5em) 30vw, 300px" alt="Photo 1"
+                            class="composition__photo composition__photo--p1" src="img/nat-1-large.jpg">
+
+                        <!--
+                                    <img src="img/nat-1-large.jpg" alt="Photo 1" class="composition__photo composition__photo--p1">
+                                    <img src="img/nat-2-large.jpg" alt="Photo 2" class="composition__photo composition__photo--p2">
+                                    <img src="img/nat-3-large.jpg" alt="Photo 3" class="composition__photo composition__photo--p3">
+                                    -->
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section-features">
+            <div class="u-center-text u-margin-bottom-big">
+                <h2 class="heading-secondary-white">
+                    HEADING
+                </h2>
+            </div>
+            <div class="row">
+                <div class="col-1-of-4-features">
+                    <div class="feature-box">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque, velit eum eligendi aperiam
+                        quam inventore consectetur facere earum non at.
+                    </div>
+                </div>
+
+                <div class="col-1-of-4-features">
+                    <div class="feature-box">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque, velit eum eligendi aperiam
+                        quam inventore consectetur facere earum non at.
+                    </div>
+                </div>
+
+                <div class="col-1-of-4-features">
+                    <div class="feature-box">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque, velit eum eligendi aperiam
+                        quam inventore consectetur facere earum non at.
+                    </div>
+                </div>
+
+                <div class="col-1-of-4-features">
+                    <div class="feature-box">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque, velit eum eligendi aperiam
+                        quam inventore consectetur facere earum non at.
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer class="footer">
+            <div class="footer__logo-box">
+
+                <picture class="footer__logo">
+                    <source srcset="img/logo-green-small-1x.png 1x, img/logo-green-small-2x.png 2x"
+                        media="(max-width: 37.5em)">
+                    <img srcset="img/logo-green-1x.png 1x, img/logo-green-2x.png 2x" alt="Full logo"
+                        src="img/logo-green-2x.png">
+                </picture>
+
+
+
+            </div>
+            <div class="row-footer">
+                <div class="col-1-of-2-footer">
+                    <div class="footer__navigation">
+                        <ul class="footer__list">
+                            <li class="footer__item"><a href="#" class="footer__link">Company</a></li>
+                            <li class="footer__item"><a href="#" class="footer__link">Contact us</a></li>
+                            <li class="footer__item"><a href="#" class="footer__link">Carrers</a></li>
+                            <li class="footer__item"><a href="#" class="footer__link">Privacy policy</a></li>
+                            <li class="footer__item"><a href="#" class="footer__link">Terms</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-1-of-2-footer">
+                    <p class="footer__copyright">
+                        Built by <a href="#" class="footer__link">TEAM_NAME</a> Copyright &copy;
+                    </p>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+<script src="script.js"></script>
+
+</html>
