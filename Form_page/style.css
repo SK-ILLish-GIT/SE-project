@@ -661,6 +661,7 @@ form {
 /* end */
 .sub {
   position: relative;
+  display: inline-block;
   top: -100px;
   right: 0;
   left: 60%;
