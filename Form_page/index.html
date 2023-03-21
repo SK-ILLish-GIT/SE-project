@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sign Up</title>
-    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="../public/css_Form_page/style.css" />
   </head>
   <body>
     <div class="heading heading-secondary">Registration Form</div>
@@ -189,7 +189,7 @@
             <div class="center2">
               <div class="frm2">
                 <div class="reg_cl2">
-                  <h3 class="reg2">Personal Info</h3>
+                  <h3 class="reg2">Login Info</h3>
                 </div>
                 <div>
                   <div id="section4">
@@ -197,41 +197,27 @@
                       <input
                         type="text"
                         class="f_input2 f_r"
-                        id="u_bg"
-                        placeholder="Blood Group"
-                      />
-                    </div>
-                    <div class="f_e">
-                      <input
-                        type="text"
+                        id="u_username"
+                        placeholder="Username"
+                        required
+                        />
+                      </div>
+                      <div class="f_e">
+                        <input
+                        type="password"
                         class="f_input2 f_r"
-                        id="u_socat"
-                        placeholder="Social Category"
-                      />
-                    </div>
-                    <div class="f_e">
-                      <input
-                        type="text"
+                        id="u_pass"
+                        placeholder="Password"
+                        required
+                        />
+                      </div>
+                      <div class="f_e">
+                        <input
+                        type="password"
                         class="f_input2 f_r"
-                        id="u_rel"
-                        placeholder="Religion"
-                      />
-                    </div>
-                    <div class="f_e">
-                      <select class="f_input" id="u_mat">
-                        <option value="" disabled selected hidden>
-                          Marital status
-                        </option>
-                        <option>Yes</option>
-                        <option>No</option>
-                      </select>
-                    </div>
-                    <div class="f_e">
-                      <input
-                        type="text"
-                        class="f_input2 f_r"
-                        id="u_nat"
-                        placeholder="Nationality"
+                        id="u_cpass"
+                        placeholder="Confirm Password"
+                        required
                       />
                     </div>
                   </div>

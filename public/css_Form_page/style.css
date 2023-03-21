@@ -119,7 +119,7 @@ body {
       rgba(255, 255, 255, 0.9) 50%,
       transparent 50%
     ),
-    url(./alexandr-bormotin-jj3PpeBIlLA-unsplash.jpg);
+    url(../images_Form_page/alexandr-bormotin-jj3PpeBIlLA-unsplash.jpg);
   background-size: 100% 100%;
   border-radius: 3px;
 }
@@ -133,7 +133,7 @@ body {
       rgba(255, 255, 255, 0.9) 50%,
       transparent 50%
     ),
-    url(./federico-bottos-AG3ZkAsPxY0-unsplash.jpg);
+    url(../images_Form_page/federico-bottos-AG3ZkAsPxY0-unsplash.jpg);
   background-size: 100% 100%;
   border-radius: 3px;
 }
@@ -335,7 +335,7 @@ form {
       rgba(40, 180, 133, 0.8) 50%,
       transparent 50%
     ),
-    url(./Zugpsitze_mountain.jpg);
+    url(../images_Form_page/Zugpsitze_mountain.jpg);
   background-size: 100% 100%;
   border-radius: 3px;
 }
@@ -457,9 +457,9 @@ form {
       from(#ffb900),
       to(#ff7730)
     ),
-    url(./nat-5.jpg);
+    url(../images_Form_page/nat-5.jpg);
   background-image: linear-gradient(to right bottom, #ffb900, #ff7730),
-    url(./nat-5.jpg);
+    url(../images_Form_page/nat-5.jpg);
 }
 .card__picture {
   background-size: cover;
@@ -678,7 +678,7 @@ form {
   padding: 2vh 4vh;
   margin-left: 4vh;
   display: inline-block;
-  border-radius: 5%;
+  border-radius: 3%;
   transition: all 0.2s;
   position: relative;
   font-size: 2vh;
