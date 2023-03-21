@@ -25,7 +25,7 @@ body{
     rgba(255, 255, 255, 0.9) 50%,
     transparent 50%
   ),
-  url(../images/bg-img.png);
+  url(../images_login/bg-img.png);
 }
 
 .secret-text {
