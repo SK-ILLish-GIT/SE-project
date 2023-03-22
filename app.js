@@ -3,9 +3,10 @@ const bodyParser = require("body-parser");
 const app = express();
 const mongoose = require("mongoose");
 
+app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(__dirname + '/public'));
-app.set('view engine', 'ejs');
+
 
 //////////////////////////////Mongoose connection and Schema////////////////////////////////////////////////////////
 const connect = async () => {
@@ -50,6 +51,9 @@ app.get("/sign-in", (req, res) => {
 app.get("/home", (req, res) => {
     res.render("home");
 });
+app.get("/register",(req,res)=>{
+    res.sendFile(__dirname+"/Form_page/index.html");
+})
 
 app.post("/sign-in", (req, res) => {
     // console.log(req.body);
@@ -58,10 +62,10 @@ app.post("/sign-in", (req, res) => {
         try {
             const user = await Users.findOne({ email: userEmail });
             if (user === null)
-                res.send("<h1>NO such user</h1>");
+                res.redirect("/register");
             else {
                 if (user.password === userPassword)
-                    res.send("<h1>Singed in sucessfully</h1>");
+                    res.redirect("/home");
                 else
                     res.send("<h1>Wrong password</h1>");
             }
