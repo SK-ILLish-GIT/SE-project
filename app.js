@@ -2,7 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const app = express();
 const mongoose = require("mongoose");
-const ejs = require("ejs");
+
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(__dirname + '/public'));
 app.set('view engine', 'ejs');
@@ -47,7 +47,9 @@ app.get("/sign-in", (req, res) => {
 
     res.sendFile(__dirname + "/LogIn/sign_in.html");
 });
-
+app.get("/home", (req, res) => {
+    res.render("home");
+});
 
 app.post("/sign-in", (req, res) => {
     // console.log(req.body);
