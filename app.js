@@ -61,6 +61,31 @@ app.get("/home", (req, res) => {
 app.get("/register", (req, res) => {
     res.sendFile(__dirname + "/Form_page/index.html");
 })
+app.get("/sign-in/security",(req,res)=>{
+    res.render("security_question");
+});
+
+app.post("/sign-in/security",(req,res)=>{
+    const userEmail = req.body.email, userAnswer = req.body.answer;
+    const findUser = async () => {
+        try {
+            const user = await Users.findOne({ email: userEmail });
+            if (user === null)
+                res.redirect("/register");
+            else {
+                if (user.answer === userAnswer)
+                    res.redirect("/home");
+                else
+                    res.send("<h1>Wrong answer</h1>");
+            }
+        }
+        catch (error) {
+            console.log("Error in finding user - " + error);
+        }
+
+    };
+    findUser();
+});
 
 app.post("/sign-in", (req, res) => {
     // console.log(req.body);
