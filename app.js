@@ -65,6 +65,9 @@ app.get("/sign-in/security",(req,res)=>{
     res.render("security_question");
 });
 
+app.post("/register",(req,res)=>{
+    console.log(req.body);
+});
 app.post("/sign-in/security",(req,res)=>{
     const userEmail = req.body.email, userAnswer = req.body.answer;
     const findUser = async () => {

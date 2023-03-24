@@ -19,7 +19,7 @@
                 <h3 class="reg">basic Info</h3>
               </div>
               <div>
-                  <form action="mydatase.sql">
+                  <form action="/register" method="post">
                   <div id="section1">
                     <div class="f_e">
                       <input
@@ -27,6 +27,7 @@
                         class="f_input"
                         id="u_name"
                         placeholder="Name"
+                        name="name"
                         required
                       />
                       <!-- <label for="u_name" class="f_label">Name</label> -->
@@ -40,6 +41,7 @@
                         onfocus="(this.type = 'date')"
                         class="f_input"
                         id="u_dob"
+                        name="birthDate"
                         required
                       />
                     </div>
@@ -50,6 +52,7 @@
                         class="f_input"
                         id="u_email"
                         placeholder="Email"
+                        name="email"
                         required
                       />
                     </div>
@@ -60,11 +63,12 @@
                         class="f_input"
                         id="u_phone"
                         placeholder="Phone"
+                        name="phoneNo"
                         required
                       />
                     </div>
                     <div class="f_e">
-                      <select required class="f_input" id="u_gender">
+                      <select required class="f_input" id="u_gender" name="gender">
                         <option value="" disabled selected hidden>
                           Gender
                         </option>
@@ -94,6 +98,7 @@
                         class="f_input2 f_r"
                         id="u_add"
                         placeholder="Address"
+                        name="address"
                         required
                       />
                     </div>
@@ -103,6 +108,7 @@
                         class="f_input2 f_r"
                         id="u_city"
                         placeholder="City"
+                        name="city"
                         required
                       />
                     </div>
@@ -112,6 +118,7 @@
                         class="f_input2 f_r"
                         id="u_state"
                         placeholder="State"
+                        name="state"
                         required
                       />
                     </div>
@@ -121,6 +128,7 @@
                         class="f_input2 f_r"
                         id="u_zip"
                         placeholder="ZIP code"
+                        name="zipCode"
                         required
                       />
                     </div>
@@ -146,17 +154,17 @@
                         class="f_input"
                         id="u_s1"
                         placeholder="Skill 1"
+                        name="skill1"
                       />
-                      <!-- <label for="u_name" class="f_label">Name</label> -->
                     </div>
 
                     <div class="f_e">
-                      <!-- <label for="u_name" class="f_label">Name</label> -->
                       <input
                         placeholder="Skill 2"
                         type="text"
                         class="f_input"
                         id="u_s2"
+                        name="skill2"
                       />
                     </div>
 
@@ -166,6 +174,7 @@
                         class="f_input"
                         id="u_s3"
                         placeholder="Skill 3"
+                        name="skill3"
                       />
                     </div>
 
@@ -175,6 +184,7 @@
                         class="f_input"
                         id="u_s4"
                         placeholder="Skill 4"
+                        name="skill4"
                       />
                     </div>
                   </div>
@@ -199,6 +209,7 @@
                         class="f_input2 f_r"
                         id="u_username"
                         placeholder="Username"
+                        name="username"
                         required
                         />
                       </div>
@@ -208,6 +219,7 @@
                         class="f_input2 f_r"
                         id="u_pass"
                         placeholder="Password"
+                        name="password"
                         required
                         />
                       </div>
@@ -220,7 +232,7 @@
                         required
                       />
                       <div class="f_e">
-                        <select class="f_r f_input2 secq">
+                        <select class="f_r f_input2 secq" name="question">
                           <option value="" disabled selected hidden>
                             Security Question 
                           </option>
@@ -236,6 +248,7 @@
                         class="f_input2 f_r"
                         id="u_ans"
                         placeholder="Answer"
+                        name="answer"
                         required
                         />
                       </div>
