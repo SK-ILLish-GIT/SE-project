@@ -21,17 +21,23 @@ const connect = async () => {
 connect();
 const userSchema = mongoose.Schema({
     email: { type: String, required: true },
-    password: { type: String, required: true }
+    password: { type: String, required: true },
+    question:{type:String, required:true},
+    answer: {type:String, required:true}
 });
 const Users = mongoose.model("user", userSchema);
 
 // const Zia = new Users({
 //     email: "IIB2021027@iiita.ac.in",
-//     password: "027"
+//     password: "027",
+//     question: "Your dog name",
+//     answer: "piyush"
 // });
 // const Sahil = new Users({
 //     email: "IIB2021038@iiita.ac.in",
-//     password: "038"
+//     password: "038",
+//     question: "Your dog name",
+//     answer: "piyush"
 // });
 // Users.insertMany([Zia, Sahil]).catch((error) => {
 //     console.log("Error in adding admins - " + error);
