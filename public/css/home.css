@@ -135,7 +135,7 @@ body {
       rgba(126, 213, 111, 0.8) 0%,
       rgba(40, 180, 133, 0.8) 50%
     ),
-    url(/Home/img/hero.jpg);
+    url(/img/hero.jpg);
   background-size: cover;
   background-position: top;
   position: relative;
@@ -556,7 +556,7 @@ btn-text:visited {
       rgba(126, 213, 111, 0.8),
       rgba(40, 180, 133, 0.8)
     ),
-    url(/Home/img/nat-4.jpg);
+    url(/img/nat-4.jpg);
   background-size: cover;
   clip-path: polygon(0 20%, 100% 0, 100% 80%, 0% 100%);
   -webkit-clip-path: polygon(0 20%, 100% 0, 100% 80%, 0% 100%);
