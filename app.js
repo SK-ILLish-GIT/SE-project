@@ -20,13 +20,53 @@ const connect = async () => {
     }
 }
 connect();
-const userSchema = mongoose.Schema({
-    email: { type: String, required: true },
-    password: { type: String, required: true },
-    question:{type:String, required:true},
-    answer: {type:String, required:true}
+
+const basicInfoSchema=mongoose.Schema({
+    name:String,
+    birthdate:Date,
+    email:String,
+    phoneNo:String,
+    gender:String
 });
-const Users = mongoose.model("user", userSchema);
+const basicInfo=mongoose.model("basicInfo",basicInfoSchema);
+const addressInfoSchema=mongoose.Schema({
+    address:String,
+    city:String,
+    state:String,
+    zipCode:Number
+});
+const addressInfo=mongoose.model("addressInfo",addressInfoSchema);
+const skillsInfoSchema=mongoose.Schema({
+    skills:[String]
+});
+const skillInfo=mongoose.model("skillInfo",skillsInfoSchema);
+const loginInfoSchema=mongoose.Schema({
+    userName:{ type: String, required: true },
+    password:{ type: String, required: true },
+    securityQuestion:String,
+    answer:String
+});
+const loginInfo=mongoose.model("loginInfo",loginInfoSchema);
+const projectSchema=mongoose.Schema({
+    topic:[String],
+    technologies:[String],
+    githubRepo:[String]
+});
+const projects=mongoose.model("project",projectSchema);
+const hobbiesInfoSchema=mongoose.Schema({
+    sports:[String],
+    others:[String]
+});
+const hobbies=mongoose.model("hobbies",hobbiesInfoSchema);
+const userSchema = mongoose.Schema({
+    basicInfo:basicInfoSchema,
+    addressInfo:addressInfoSchema,
+    skillsInfo:skillsInfoSchema,
+    loginInfo:loginInfoSchema,
+    projectInfo:projectSchema,
+    hobbiesInfo:hobbiesInfoSchema
+});
+const user = mongoose.model("user", userSchema);
 
 // const Zia = new Users({
 //     email: "IIB2021027@iiita.ac.in",
@@ -66,7 +106,75 @@ app.get("/sign-in/security",(req,res)=>{
 });
 
 app.post("/register",(req,res)=>{
-    console.log(req.body);
+        const newUserBasicInfo=new basicInfo({
+            name:req.body.name,
+            birthdate:req.body.birthdate,
+            email:req.body.email,
+            phoneNo:req.body.phoneNo,
+            gender:req.body.gender
+        });
+        newUserBasicInfo.save();
+        const newUserAddressInfo=new addressInfo({
+            address:req.body.address,
+            city:req.body.city,
+            state:req.body.state,
+            zipCode:req.body.zipCode
+        });
+        newUserAddressInfo.save();
+
+        const newUserSkillsInfo=new skillInfo({
+            skills:[req.body.skill1,req.body.skill2,req.body.skill3,req.body.skill4]
+        });
+        newUserSkillsInfo.save();
+
+        const newUserLoginInfo=new loginInfo({
+            userName:req.body.userName,
+            password:req.body.password,
+            securityQuestion:req.body.securityQuestion,
+            answer:req.body.answer
+        });
+        newUserLoginInfo.save();
+        const newUserProjects=new projects({
+            topic:req.body.topic,
+            technologies:req.body.techonologies,
+            githubRepo:req.body.githubRepo
+        });
+        newUserProjects.save();
+
+        const newUserSports=[];
+        if(req.body.cricket!=undefined)
+        newUserSports.push("Cricket");
+        if(req.body.football!=undefined)
+        newUserSports.push("Football");
+        if(req.body.basketBall!=undefined)
+        newUserSports.push("Basket Ball");
+        if(req.body.other!=undefined)
+        newUserSports.push("Other");
+
+        const newUserOtherHobbies=[];
+        if(req.body.music!=undefined)
+        newUserOtherHobbies.push("Music");
+        if(req.body.arts!=undefined)
+        newUserOtherHobbies.push("Arts");
+
+        newUserOtherHobbies.push(req.body.otherHobbies);
+
+        const newUserHobbiesInfo=new hobbies({
+            sports:newUserSports,
+            others:newUserOtherHobbies
+        });
+        newUserHobbiesInfo.save();
+
+        const newUser=new user({
+            basicInfo:newUserBasicInfo,
+            addressInfo:newUserAddressInfo,
+            skillInfo:newUserSkillsInfo,
+            loginInfo:newUserLoginInfo,
+            projectInfo:newUserProjects,
+            hobbiesInfo:newUserHobbiesInfo 
+        });
+        newUser.save();
+
 });
 app.post("/sign-in/security",(req,res)=>{
     const userEmail = req.body.email, userAnswer = req.body.answer;
