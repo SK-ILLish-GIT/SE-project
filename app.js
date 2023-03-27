@@ -59,6 +59,8 @@ const hobbiesInfoSchema=mongoose.Schema({
 });
 const hobbies=mongoose.model("hobbies",hobbiesInfoSchema);
 const userSchema = mongoose.Schema({
+    userName:String,
+    password:String,
     basicInfo:basicInfoSchema,
     addressInfo:addressInfoSchema,
     skillsInfo:skillsInfoSchema,
@@ -166,6 +168,8 @@ app.post("/register",(req,res)=>{
         newUserHobbiesInfo.save();
 
         const newUser=new user({
+            userName:req.body.userName,
+            password:req.body.password,
             basicInfo:newUserBasicInfo,
             addressInfo:newUserAddressInfo,
             skillInfo:newUserSkillsInfo,
@@ -174,6 +178,8 @@ app.post("/register",(req,res)=>{
             hobbiesInfo:newUserHobbiesInfo 
         });
         newUser.save();
+
+        res.redirect("/sign-in");
 
 });
 app.post("/sign-in/security",(req,res)=>{
@@ -200,14 +206,14 @@ app.post("/sign-in/security",(req,res)=>{
 
 app.post("/sign-in", (req, res) => {
     // console.log(req.body);
-    const userEmail = req.body.email, userPassword = req.body.password;
+    const currUserName = req.body.userName, currUserPassword = req.body.password;
     const findUser = async () => {
         try {
-            const user = await Users.findOne({ email: userEmail });
-            if (user === null)
+            const currUser = await user.findOne({ userName: currUserName });
+            if (currUser === null)
                 res.redirect("/register");
             else {
-                if (user.password === userPassword)
+                if (currUser.password === currUserPassword)
                     res.redirect("/home");
                 else
                     res.send("<h1>Wrong password</h1>");
