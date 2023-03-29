@@ -7,7 +7,7 @@ const mongoose = require("mongoose");
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(__dirname + '/public'));
-
+let currUser=null;
 
 //////////////////////////////Mongoose connection and Schema////////////////////////////////////////////////////////
 const connect = async () => {
@@ -106,6 +106,9 @@ app.get("/register", (req, res) => {
 app.get("/sign-in/security",(req,res)=>{
     res.render("security_question");
 });
+app.get("/info",(req,res)=>{
+    res.render("info",{currUser:currUser});
+})
 
 app.post("/register",(req,res)=>{
         const newUserBasicInfo=new basicInfo({
@@ -172,7 +175,7 @@ app.post("/register",(req,res)=>{
             password:req.body.password,
             basicInfo:newUserBasicInfo,
             addressInfo:newUserAddressInfo,
-            skillInfo:newUserSkillsInfo,
+            skillsInfo:newUserSkillsInfo,
             loginInfo:newUserLoginInfo,
             projectInfo:newUserProjects,
             hobbiesInfo:newUserHobbiesInfo 
@@ -209,12 +212,15 @@ app.post("/sign-in", (req, res) => {
     const currUserName = req.body.userName, currUserPassword = req.body.password;
     const findUser = async () => {
         try {
-            const currUser = await user.findOne({ userName: currUserName });
-            if (currUser === null)
+             const newCurrUser = await user.findOne({ userName: currUserName });
+            if (newCurrUser === null)
                 res.redirect("/register");
             else {
-                if (currUser.password === currUserPassword)
+                if (newCurrUser.password === currUserPassword)
+                {
+                    currUser=newCurrUser;
                     res.redirect("/home");
+                }
                 else
                     res.send("<h1>Wrong password</h1>");
             }
