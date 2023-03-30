@@ -88,8 +88,8 @@
                 <li><a class="active" href="#" style="text-decoration: none;">About</a></li>
                 <li><a class="active" href="#" style="text-decoration: none;">Contact</a></li>
                 <li><a class="active" href="#" style="text-decoration: none;">LogOut</a></li>
-             
-            
+
+
             </ul>
         </nav> -->
             <div class="row1">
@@ -176,28 +176,47 @@
                     <div class="card info-card" style="height:380px">
                         <div class="card-body">
                             <h2 class="text-blue">Tecnical Skills</h2>
-                            <%for(let i=0;i<currUser.skillsInfo.skills.length;i++){%>
+                            <%for(let i=0;i<currUser.skillsInfo.technicalSkills.length;i++){%>
                                 <%if(i%2==0){%>
                                     <div class="row">
                                         <div class="col-lg-6">
-                                            <h4><%=currUser.skillsInfo.skills[i]%></h4>
-        
-                                        </div>   
+                                            <h4><%=currUser.skillsInfo.technicalSkills[i]%></h4>
+
+                                        </div>
                                 <%}else{%>
                                     <div class="col-lg-6">
-                                        <h4><%=currUser.skillsInfo.skills[i]%></h4>
+                                        <h4><%=currUser.skillsInfo.technicalSkills[i]%></h4>
                                         <div class="mb-3">
-    
+
                                         </div>
                                     </div>
                                 </div>
                                 <%}%>
-                                
-                                    
+
+
                             <% } %>
                             <h2 class="text-blue">Non-Tecnical Skills</h2>
-                            
-                            
+                            <%for(let i=0;i<currUser.skillsInfo.nontechnicalSkills.length;i++){%>
+                                <%if(i%2==0){%>
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <h4><%=currUser.skillsInfo.nontechnicalSkills[i]%></h4>
+
+                                        </div>
+                                <%}else{%>
+                                    <div class="col-lg-6">
+                                        <h4><%=currUser.skillsInfo.nontechnicalSkills[i]%></h4>
+                                        <div class="mb-3">
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <%}%>
+
+
+                            <% } %>
+
+
                         </div>
                     </div>
                 </div>
@@ -209,7 +228,7 @@
                             <h2 class="text-blue">Education</h2>
                             <div class="row">
                                 <div class="col-lg-6">
-                                    <h4><strong>Tell College Name </strong></h4>
+                                    <h4><strong><%=  =></strong></h4>
                                     <p>May 2009 to June 2011 </p>
 
                                 </div>
@@ -235,29 +254,30 @@
                 <div class="col-lg-6">
                     <div class="card info-card" style="height:380px">
                         <div class="card-body">
-                            <h2 class="text-blue">Achievements</h2>
-                            <div class="row">
-                                <div class="col-lg-6">
+                            <h2 class="text-blue">Projects</h2>
 
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                                        incididunt ut labore et dolore magna aliqua. </p>
-                                </div>
-                                <div class="col-lg-6">
+                            <%for(let i=0;i<currUser.projectInfo.name.length;i++){%>
+                                <%if(currUser.projectInfo.name[i]===null){%>
+                                <%break;}%>
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <h4>Name: <%=currUser.projectInfo.name[i]%></h4>
+                                    </div>
+                                    <div class="col-lg-6">
 
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                                        incididunt ut labore et dolore magna aliqua. </p>
-                                </div>
-                                <div class="col-lg-6">
+                                        <p>Domain: <%=currUser.projectInfo.domain[i]%></p>
+                                    </div>
+                                    <div class="col-lg-6">
 
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                                        incididunt ut labore et dolore magna aliqua. </p>
+                                        <p>Tech Stack: <%=currUser.projectInfo.technologies[i]%></p>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <a href=<%=currUser.projectInfo.githubRepo[i]%>>Github Repo</a>
+                                    </div>
                                 </div>
-                                <div class="col-lg-6">
+                            <%}%>
 
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                                        incididunt ut labore et dolore magna aliqua. </p>
-                                </div>
-                            </div>
+
                         </div>
                     </div>
                 </div>
