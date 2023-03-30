@@ -37,7 +37,8 @@ const addressInfoSchema=mongoose.Schema({
 });
 const addressInfo=mongoose.model("addressInfo",addressInfoSchema);
 const skillsInfoSchema=mongoose.Schema({
-    skills:[String]
+    technicalSkills:[String],
+    nontechnicalSkills:[String]
 });
 const skillInfo=mongoose.model("skillInfo",skillsInfoSchema);
 const loginInfoSchema=mongoose.Schema({
@@ -48,7 +49,8 @@ const loginInfoSchema=mongoose.Schema({
 });
 const loginInfo=mongoose.model("loginInfo",loginInfoSchema);
 const projectSchema=mongoose.Schema({
-    topic:[String],
+    name:[String],
+    domain:[String],
     technologies:[String],
     githubRepo:[String]
 });
@@ -57,6 +59,18 @@ const hobbiesInfoSchema=mongoose.Schema({
     sports:[String],
     others:[String]
 });
+const educationInfoSchema=mongoose.Schema({
+    hsName:String,
+    hsStart:Date,
+    hsEnd:Date,
+    hsPercentage:String,
+    cName:String,
+    cStart:Date,
+    cEnd:Date,
+    cCg:String,
+    cBranch:String,
+});
+const educationInfo=mongoose.model("education",educationInfoSchema);
 const hobbies=mongoose.model("hobbies",hobbiesInfoSchema);
 const userSchema = mongoose.Schema({
     userName:String,
@@ -66,7 +80,8 @@ const userSchema = mongoose.Schema({
     skillsInfo:skillsInfoSchema,
     loginInfo:loginInfoSchema,
     projectInfo:projectSchema,
-    hobbiesInfo:hobbiesInfoSchema
+    hobbiesInfo:hobbiesInfoSchema,
+    educationInfo:educationInfoSchema
 });
 const user = mongoose.model("user", userSchema);
 
@@ -111,6 +126,7 @@ app.get("/info",(req,res)=>{
 })
 
 app.post("/register",(req,res)=>{
+    console.log(req.body);
         const newUserBasicInfo=new basicInfo({
             name:req.body.name,
             birthdate:req.body.birthdate,
@@ -128,7 +144,8 @@ app.post("/register",(req,res)=>{
         newUserAddressInfo.save();
 
         const newUserSkillsInfo=new skillInfo({
-            skills:[req.body.skill1,req.body.skill2,req.body.skill3,req.body.skill4]
+            technicalSkills:req.body.user_tech,
+            nontechnicalSkills:req.body.user_non_tech
         });
         newUserSkillsInfo.save();
 
@@ -140,7 +157,8 @@ app.post("/register",(req,res)=>{
         });
         newUserLoginInfo.save();
         const newUserProjects=new projects({
-            topic:req.body.topic,
+            name:req.body.Pname,
+            domain:req.body.domain,
             technologies:req.body.techonologies,
             githubRepo:req.body.githubRepo
         });
@@ -153,8 +171,6 @@ app.post("/register",(req,res)=>{
         newUserSports.push("Football");
         if(req.body.basketBall!=undefined)
         newUserSports.push("Basket Ball");
-        if(req.body.other!=undefined)
-        newUserSports.push("Other");
 
         const newUserOtherHobbies=[];
         if(req.body.music!=undefined)
@@ -170,6 +186,19 @@ app.post("/register",(req,res)=>{
         });
         newUserHobbiesInfo.save();
 
+        const newUserEducationInfo=new educationInfo({
+            hsName:req.body.hsName,
+            hsStart:req.body.hsStart,
+            hsEnd:req.body.hsEnd,
+            hsPercentage:req.body.hsPercentage,
+            cName:req.body.cName,
+            cStart:req.body.cStart,
+            cEnd:req.body.cEnd,
+            cCg:req.body.cCg,
+            cBranch:req.body.cBranch,
+        });
+        newUserEducationInfo.save();
+
         const newUser=new user({
             userName:req.body.userName,
             password:req.body.password,
@@ -178,7 +207,8 @@ app.post("/register",(req,res)=>{
             skillsInfo:newUserSkillsInfo,
             loginInfo:newUserLoginInfo,
             projectInfo:newUserProjects,
-            hobbiesInfo:newUserHobbiesInfo 
+            hobbiesInfo:newUserHobbiesInfo,
+            educationInfo:newUserEducationInfo
         });
         newUser.save();
 
