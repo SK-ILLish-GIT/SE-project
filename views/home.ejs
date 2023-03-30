@@ -8,6 +8,9 @@
     <title>HOME -</title>
     <!-- <link rel="stylesheet" href="/public/css/home.css"> -->
     <link rel="stylesheet" href="/css/home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
@@ -16,14 +19,28 @@
             <div id="myNav" class="overlay">
                 <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
                 <div class="overlay-content">
-                    <a href="#">Home</a>
-                    <a href="#">About</a>
-                    <a href="#">Contact</a>
+                    <a class="overlay-content_left_rotation" href="#">Home</a>
+                    <a class="overlay-content_right_rotation" href="#">login/register</a>
+                    <a class="overlay-content_left_rotation" href="#">search Student</a>
+                    <a class="overlay-content_right_rotation" href="#">About</a>
+                    <a class="overlay-content_left_rotation" href="#">Contact</a>
+                </div>
+                <div class="social_links">
+                    <a href="#" class="instagram"><i class="fa-brands fa-instagram fa-lg"
+                            style="color: #d1109d;"></i></a>
+                    <a href="#" class="linkedin"><i class="fa-brands fa-linkedin fa-lg" style="color: #286cff;"></i></a>
+                    <a href="#" class="facebook"><i class="fa-brands fa-facebook fa-lg" style="color: #3b5998;"></i></a>
+                    <a href="#" class="twitter"><i class="fa-brands fa-twitter fa-lg" style="color: #00acee;"></i></a>
+                    <a href="#" class="youtube"><i class="fa-brands fa-youtube fa-lg" style="color: #ff0000;"></i></a>
                 </div>
             </div>
             <div class="header__logo-box">
                 <!-- <img src="/img/logo-green-1x.png" alt="Logo" class="header__logo"> -->
                 <img src="/img/logo-green-1x.png" alt="Logo" class="header__logo">
+            </div>
+            <div class="header__profile__container">
+                <img src="https://mdbcdn.b-cdn.net/img/new/avatars/1.webp" class="header__profile__img"
+                    style="width: 50px;" alt="Avatar" />
             </div>
             <span style="font-size:45px;cursor:pointer" onclick="openNav()">&#9776;</span>
         </nav>
@@ -35,10 +52,10 @@
                     <span class="heading-primary--sub">Lorem, ipsum dolor.</span>
                 </h1>
 
-                <a href="#section-tours" class="btn btn--white btn--animated">Discover students</a>
+                <a href="#section-about" class="btn btn--white btn--animated">Discover students</a>
             </div>
         </header>
-        <section class="section-about">
+        <section class="section-about" id="section-about">
             <div class="u-center-text u-margin-bottom-big">
                 <h2 class="heading-secondary">
                     Discover students
@@ -48,11 +65,15 @@
                 </h3>
             </div>
 
-            <div class="row">
+            <div class="row" style="height:50vh">
                 <div class="col-1-of-2">
                     <div class="container">
                         <div class="searchInput">
                             <input type="text" placeholder="Search By anything">
+                            <button type="button" class="search-btn" id="search-btn">
+                                <i class="fas fa-search"></i>
+                                search
+                            </button>
                             <div class="resultBox">
                                 <!-- here list are inserted from javascript -->
                             </div>
@@ -63,9 +84,10 @@
                 <div class="col-1-of-2">
                     <div class="composition">
 
-                        <img srcset="/img/nat-1.jpg 300w, /img/nat-1-large.jpg 1000w"
+                        <img srcset="/img/discover-student.png 300w, /img/discover-student.png 1000w"
                             sizes="(max-width: 56.25em) 20vw, (max-width: 37.5em) 30vw, 300px" alt="Photo 1"
-                            class="composition__photo composition__photo--p1" src="/img/nat-1-large.jpg">
+                            class="composition__photo composition__photo--p1" src="/img/discover-student.png"
+                            style="zoom: .3;">
 
                         <!--
                                     <img src="/img/nat-1-large.jpg" alt="Photo 1" class="composition__photo composition__photo--p1">
@@ -148,6 +170,101 @@
                 </div>
             </div>
         </section>
+        <!-- <section class="signUp">
+            <div class="container-sign-up">
+                <div class="centered-sign-up">
+                    <div class="frm">
+                        <div class="u-center-text u-margin-bottom-big frm-heading">
+                            <h2 class="heading-secondary">
+                                heading
+                            </h2>
+                        </div>
+                        <hr>
+                        <form class="form-inside" action="/sign-in" method="post">
+                            <div class="box">
+                                <i class="fa-solid fa-user"></i>
+                                <input type="text" name="email" id="email" placeholder="Enter your email" required>
+                            </div>
+                            <div class="box">
+                                <i class="fa-solid fa-key"></i>
+                                <input type="password" name="password" id="password" placeholder="Enter your password"
+                                    required>
+                            </div> -->
+        <!-- <div class="lebel-form">
+                                <span>Username</span>
+                            </div>
+                            <div class="searchInput-signup">
+                                <i class="fa-solid fa-user"></i>
+                                <input type="text" name="email" id="email" placeholder="Enter your email" required>
+                            </div>
+                            <div class="lebel-form">
+                                <span>Password</span>
+                            </div>
+                            <div class="searchInput-signup">
+                                <i class="fa-solid fa-key"></i>
+                                <input type="password" name="password" id="password" placeholder="Enter your password"
+                                    required>
+                            </div>
+                            <div class="forgot_password">
+                                <a href="#">
+                                    Forgot password?
+                                </a>
+                            </div>
+                            <div class="frm-btns">
+                                <button class="btn btn--green sign-in-btn">sign in</button>
+                            </div>
+                            <div class="u-center-text u-margin-bottom-big frm-heading">
+                                <h2 class="heading-tertiary">
+                                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rem, nihil.
+                                </h2>
+                            </div>
+                            <div class="frm-btns">
+                                <button href="/Form_page/index.html" class="sign-in-btn">Register</button>
+                                <button href="/LogIn/login.html" class="sign-in-btn">Log in</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section> -->
+        <section class="container-admin-operation">
+            <div class="u-center-text u-margin-bottom-big">
+                <h2 class="heading-secondary-white heading-admin-operation">
+                    MODIFY DATABASE
+                </h2>
+            </div>
+            <div class="row row-admin-operation">
+                <div class="col-1-of-4-features">
+                    <button class="btn btn-square btn-add btn--animated ">
+                        <a>
+                            ADD
+                        </a>
+                    </button>
+                </div>
+                <div class="col-1-of-4-features">
+                    <button class="btn btn-square btn-update btn--animated ">
+                        <a>
+                            UPDATE
+                        </a>
+                    </button>
+                </div>
+                <div class="col-1-of-4-features">
+                    <button class="btn btn-square btn-search btn--animated">
+                        <a href="#section-about">
+                            SEARCH
+                        </a>
+                    </button>
+                </div>
+
+                <div class="col-1-of-4-features">
+                    <button class="btn btn-square btn-delete btn--animated">
+                        <a>
+                            DELETE
+                        </a>
+                    </button>
+                </div>
+            </div>
+        </section>
         <footer class="footer">
             <div class="footer__logo-box">
 
@@ -176,10 +293,18 @@
                     </p>
                 </div>
             </div>
+            <!-- add font awesome social modia icons -->
+            <div class="footer_social-icons">
+                <a href="#" class="instagram"><i class="fa-brands fa-instagram fa-xl" style="color: #d1109d;"></i></a>
+                <a href="#" class="linkedin"><i class="fa-brands fa-linkedin fa-xl" style="color: #286cff;"></i></a>
+                <a href="#" class="facebook"><i class="fa-brands fa-facebook fa-xl" style="color: #3b5998;"></i></a>
+                <a href="#" class="twitter"><i class="fa-brands fa-twitter fa-xl" style="color: #00acee;"></i></a>
+                <a href="#" class="youtube"><i class="fa-brands fa-youtube fa-xl" style="color: #ff0000;"></i></a>
+            </div>
         </footer>
     </div>
 </body>
-<script src="js/home.js"></script>
+<script src=" js/home.js"></script>
 <!-- <script src="/public/js/home.js"></script> -->
 
 </html>
