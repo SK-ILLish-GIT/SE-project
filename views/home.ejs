@@ -69,11 +69,13 @@
                 <div class="col-1-of-2">
                     <div class="container">
                         <div class="searchInput">
-                            <input type="text" placeholder="Search By anything">
-                            <button type="button" class="search-btn" id="search-btn">
-                                <i class="fas fa-search"></i>
-                                search
-                            </button>
+                            <form action="/search" method="post">
+                                <input type="text" placeholder="Search By anything" name="search">
+                                <button type="button" class="search-btn" id="search-btn">
+                                    <i class="fas fa-search"></i>
+                                    search
+                                </button>
+                            </form>
                             <div class="resultBox">
                                 <!-- here list are inserted from javascript -->
                             </div>
