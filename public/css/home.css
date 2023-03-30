@@ -325,6 +325,18 @@ body {
 .btn-add::after {
   background-color: #004bcc;
 }
+.search-btn {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  height: 60px;
+  width: 18%;
+  border: 0px;
+  border-radius: 0px 6px 6px 0px;
+}
+.search-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+}
 
 @keyframes moveInBottom {
   0% {
@@ -483,7 +495,7 @@ btn-text:visited {
 
 .searchInput input {
   height: 55px;
-  width: 100%;
+  width: 80%;
   outline: none;
   border: none;
   border-radius: 5px;
