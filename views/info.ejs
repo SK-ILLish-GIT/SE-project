@@ -97,7 +97,7 @@
                     <div class="top-breadcrumb">
 
                     </div>
-                </div>
+                </div>-
             </div>
             <div class="img" style=" padding: 0%;   background-image: linear-gradient(150deg, rgba(63, 174, 255, .3)15%, rgba(63, 174, 255, .3)70%,
          rgba(63, 175, 255, 0.755)94%), url(/images_Info/wallpaper.jpg);
@@ -164,9 +164,6 @@
                                         <span><%= currUser.basicInfo.email%></span>
                                     </div>
                                 </div>
-                                <h4><strong>Hobbies</strong></h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                                    incididunt ut labore et dolore magna aliqua. </p>
                             </div>
 
                         </div>
@@ -179,10 +176,10 @@
                             <%for(let i=0;i<currUser.skillsInfo.technicalSkills.length;i++){%>
                                 <%if(i%2==0){%>
                                     <div class="row">
-                                        <div class="col-lg-6">
-                                            <h4><%=currUser.skillsInfo.technicalSkills[i]%></h4>
+                                      <div class="col-lg-6">
+                                          <h4><%=currUser.skillsInfo.technicalSkills[i]%></h4>
 
-                                        </div>
+                                      </div>
                                 <%}else{%>
                                     <div class="col-lg-6">
                                         <h4><%=currUser.skillsInfo.technicalSkills[i]%></h4>
@@ -212,11 +209,20 @@
                                     </div>
                                 </div>
                                 <%}%>
-
-
                             <% } %>
-
-
+                            <h2 class="text-blue">Hobbies</h2>
+                            <div class="row">
+                            <div class="col-lg-6">
+                              <%for(let i=0;i<currUser.hobbiesInfo.sports.length;i++){%>
+                                <h4><%=currUser.hobbiesInfo.sports[i]%></h4>
+                                <%}%>
+                            </div>
+                            <div class="col-lg-6">
+                              <%for(let i=0;i<currUser.hobbiesInfo.others.length;i++){%>
+                                <h4><%=currUser.hobbiesInfo.others[i]%></h4>
+                                <%}%>
+                            </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -228,25 +234,21 @@
                             <h2 class="text-blue">Education</h2>
                             <div class="row">
                                 <div class="col-lg-6">
-                                    <h4><strong>Tell College Name </strong></h4>
-                                    <p>May 2009 to June 2011 </p>
+                                    <h4><strong><%= currUser.educationInfo.cName %></strong></h4>
+                                    <p><%= currUser.educationInfo.cStart%> to <%= currUser.educationInfo.cEnd %></p>
 
                                 </div>
                                 <div class="col-lg-6">
-                                    <h4><strong>Courses Performance</strong></h4>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                                        incididunt ut labore et dolore magna aliqua. </p>
+                                    <h4><strong>Branch: <%= currUser.educationInfo.cBranch %></strong></h4>
+                                    <h4><strong>CGPA: <%= currUser.educationInfo.cCg %></strong></h4>
                                 </div>
                                 <div class="col-lg-6">
-                                    <h4><strong>Tell About Highschool</strong></h4>
-                                    <p>Aug 2004 to June 2009 </p>
+                                    <h4><strong><%= currUser.educationInfo.hsName %></strong></h4>
+                                    <p><%= currUser.educationInfo.hsStart %> to <%= currUser.educationInfo.hsEnd %> </p>
                                 </div>
                                 <div class="col-lg-6">
-                                    <h4><strong>Graduation </strong></h4>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                                        incididunt ut labore et dolore magna aliqua. </p>
+                                    <h4><strong>Percentage: <%= currUser.educationInfo.hsPercentage %>% </strong></h4>
                                 </div>
-
                             </div>
                         </div>
                     </div>
@@ -255,7 +257,7 @@
                     <div class="card info-card" style="height:380px">
                         <div class="card-body">
                             <h2 class="text-blue">Projects</h2>
-                            
+
                             <%for(let i=0;i<currUser.projectInfo.name.length;i++){%>
                                 <%if(currUser.projectInfo.name[i]===null){%>
                                 <%break;}%>
@@ -264,11 +266,11 @@
                                         <h4>Name: <%=currUser.projectInfo.name[i]%></h4>
                                     </div>
                                     <div class="col-lg-6">
-    
+
                                         <p>Domain: <%=currUser.projectInfo.domain[i]%></p>
                                     </div>
                                     <div class="col-lg-6">
-    
+
                                         <p>Tech Stack: <%=currUser.projectInfo.technologies[i]%></p>
                                     </div>
                                     <div class="col-lg-6">
