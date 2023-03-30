@@ -15,11 +15,11 @@
         <div class="row">
           <div class="center">
             <div class="frm">
-              <div class="reg_cl">
-                <h3 class="reg">basic Info</h3>
-              </div>
-              <div>
-                  <form action="/register" method="post">
+              <form action="/register" method="post">
+                <div class="reg_cl">
+                  <h3 class="reg">basic Info</h3>
+                </div>
+                <div>
                   <div id="section1">
                     <div class="f_e">
                       <input
@@ -68,7 +68,12 @@
                       />
                     </div>
                     <div class="f_e">
-                      <select required class="f_input" id="u_gender" name="gender">
+                      <select
+                        required
+                        class="f_input"
+                        id="u_gender"
+                        name="gender"
+                      >
                         <option value="" disabled selected hidden>
                           Gender
                         </option>
@@ -139,12 +144,14 @@
           </div>
         </div>
 
+
+        
         <div class="sec_reg3">
           <div class="row">
             <div class="center3">
               <div class="frm">
                 <div class="reg_cl">
-                  <h3 class="reg">Skills Info</h3>
+                  <h3 class="reg">Technical Skills</h3>
                 </div>
                 <div>
                   <div id="section3">
@@ -194,6 +201,223 @@
           </div>
         </div>
 
+        <!-- non tech -->
+        <div class="sec_reg2">
+          <div class="row2">
+            <div class="center2">
+              <div class="frm2">
+                <div class="reg_cl2">
+                  <h3 class="reg2">Non-Tech Skills</h3>
+                </div>
+                <div>
+                  <div id="section8">
+                    <div class="f_e">
+                      <input
+                        type="text"
+                        class="f_input2 f_r"
+                        placeholder="Skill 1"
+                        name="user_non_tech"
+                      />
+                    </div>
+                    <div class="f_e">
+                      <input
+                        type="text"
+                        class="f_input2 f_r"
+                        placeholder="Skill 2"
+                        name="user_non_tech"
+                      />
+                    </div>
+                    <div class="f_e">
+                      <input
+                        type="text"
+                        class="f_input2 f_r"
+                        placeholder="Skill 3"
+                        name="user_non_tech"
+                      />
+                    </div>
+                    <div class="f_e">
+                      <input
+                        type="text"
+                        class="f_input2 f_r"
+                        placeholder="Skill 4"
+                        name="user_non_tech"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- end -->
+
+        <!-- education -->
+        <div class="education sec_reg3 reg_cl">
+          <div class="regPro reg2 ">Education</div>
+
+          <!--  -->
+          <div class="row2">
+            <div class="col-1-of-2">
+              <div class="card">
+                <div class="card__side card__side--front">
+                  <div class="card__picture card__picture--1">&nbsp;</div>
+                  <h4 class="card__heading">
+                    <span class="card__heading-span card__heading-span--1"
+                      >Highschool
+                    </span>
+                  </h4>
+                  <!-- <div class="card__details">
+                <ul>
+                  <li>3 day tours</li>
+                  <li>Up to 30 people</li>
+                  <li>2 tour guides</li>
+                  <li>Sleep in cozy hotels</li>
+                  <li>Difficulty: easy</li>
+                </ul>
+              </div> -->
+                </div>
+                <div class="card__side card__side--back card__side--back-1">
+                  <div class="card__cta">
+                    <!-- <div class="f_e f_input"> -->
+                      
+                      <div class="f_e">
+                        <input
+                          type="text"
+                          class="f_input card_in2"
+                          placeholder="Name of School"
+                          name="hs_name"
+                          required
+                        />
+                      </div>
+                      <div class="f_e">
+                        <input 
+                        placeholder="Year of joining"
+                        type="text"
+                        onfocus="(this.type = 'month')"
+                          class="f_input card_in2edu "
+                          name="hs_join"
+                          required
+                        />
+                      </div>
+                      <div class="f_e">
+                        <input 
+                        placeholder="Year of Leaving"
+                        type="text"
+                        onfocus="(this.type = 'month')"
+                          class="f_input card_in2edu "
+                          name="hs_end"
+                          required
+                        />
+                      </div>
+                      <div class="f_e">
+                        <input
+                          type="text"
+                          class="f_input card_in2"
+                          placeholder="Percentage Secured"
+                          name="perHS"
+                          required
+                        />
+                      </div>
+                      <!-- <div class="card__price-box">
+                      <p class="card__price-only">Only</p>
+                      <p class="card__price-value">$297</p>
+                    </div> -->
+                      <!-- <a href="#popup" class="btnp btn--white">Enter</a> -->
+                    <!-- </div> -->
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- </div> -->
+
+            <!-- <div class="row"> -->
+              <div class="col-1-of-2">
+                <div class="card">
+                  <div class="card__side card__side--front">
+                    <div class="card__picture card__picture--1">&nbsp;</div>
+                    <h4 class="card__heading">
+                      <span class="card__heading-span card__heading-span--1"
+                        >College
+                      </span>
+                    </h4>
+                    <!-- <div class="card__details">
+                  <ul>
+                    <li>3 day tours</li>
+                    <li>Up to 30 people</li>
+                    <li>2 tour guides</li>
+                    <li>Sleep in cozy hotels</li>
+                    <li>Difficulty: easy</li>
+                  </ul>
+                </div> -->
+                  </div>
+                  <div class="card__side card__side--back card__side--back-1">
+                    <div class="card__cta">
+                      <!-- <div class="f_e f_input"> -->
+                        
+                        <div class="f_e">
+                          <input
+                            type="text"
+                            class="f_input card_in2"
+                            placeholder="Name of College"
+                            name="clg_name"
+                            required
+                          />
+                        </div>
+                        <div class="f_e">
+                          <input 
+                          placeholder="Year of joining"
+                          type="text"
+                          onfocus="(this.type = 'month')"
+                            class="f_input card_in2edu "
+                            name="clg_join"
+                          />
+                        </div>
+                        <div class="f_e">
+                          <input 
+                          placeholder="Year of Leaving"
+                          type="text"
+                          onfocus="(this.type = 'month')"
+                            class="f_input card_in2edu "
+                            name="clg_end"
+                            required
+                          />
+                        </div>
+                        <div class="f_e">
+                          <input
+                            type="text"
+                            class="f_input card_in2"
+                            placeholder="Branch"
+                            name="u_branch"
+                            required
+                          />
+                        </div>
+                        <div class="f_e">
+                          <input
+                            type="text"
+                            class="f_input card_in2"
+                            placeholder="CGPA Secured"
+                            name="u_cgpa"
+                            required
+                          />
+                        </div>
+                        <!-- <div class="card__price-box">
+                        <p class="card__price-only">Only</p>
+                        <p class="card__price-value">$297</p>
+                      </div> -->
+                        <!-- <a href="#popup" class="btnp btn--white">Enter</a> -->
+                      <!-- </div> -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            
+          </div>
+          <!--  -->
+        </div>
+        <!-- end -->
+
+
         <div class="sec_reg2">
           <div class="row2">
             <div class="center2">
@@ -211,20 +435,20 @@
                         placeholder="Username"
                         name="userName"
                         required
-                        />
-                      </div>
-                      <div class="f_e">
-                        <input
+                      />
+                    </div>
+                    <div class="f_e">
+                      <input
                         type="password"
                         class="f_input2 f_r"
                         id="u_pass"
                         placeholder="Password"
                         name="password"
                         required
-                        />
-                      </div>
-                      <div class="f_e">
-                        <input
+                      />
+                    </div>
+                    <div class="f_e">
+                      <input
                         type="password"
                         class="f_input2 f_r"
                         id="u_cpass"
@@ -232,26 +456,30 @@
                         required
                       />
                       <div class="f_e">
-                        <select class="f_r f_input2 secq" name="securityQuestion">
+                        <select
+                          class="f_r f_input2 secq"
+                          name="securityQuestion"
+                        >
                           <option value="" disabled selected hidden>
-                            Security Question 
+                            Security Question
                           </option>
                           <option>Name of your Dog</option>
                           <option>Name of your first school</option>
                           <option>Favourite food</option>
                         </select>
-                      />
-                    </div>
-                    <div class="f_e">
-                      <input
-                        type="text"
-                        class="f_input2 f_r"
-                        id="u_ans"
-                        placeholder="Answer"
-                        name="answer"
-                        required
                         />
                       </div>
+                      <div class="f_e">
+                        <input
+                          type="text"
+                          class="f_input2 f_r"
+                          id="u_ans"
+                          placeholder="Answer"
+                          name="answer"
+                          required
+                        />
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -309,18 +537,7 @@
                         </label>
                       </div>
 
-                      <div class="form__radio-group">
-                        <input
-                          type="checkbox"
-                          class="form__radio-input"
-                          id="Other"
-                          name="other"
-                        />
-                        <label for="Other" class="form__radio-label">
-                          <span class="form__radio-button"></span>
-                          Other
-                        </label>
-                      </div>
+                      
                     </div>
 
                     <hr class="form_line" />
@@ -391,9 +608,17 @@
                 <div class="card__side card__side--back card__side--back-1">
                   <div class="card__cta">
                     <div class="f_e f_input">
+                      <div class="f_e">
+                        <input
+                          type="text"
+                          class="f_input card_in2"
+                          placeholder="Name of Project"
+                          name="techonologies"
+                        />
+                      </div>
                       <select class="card_in f_input" name="topic">
                         <option value="" disabled selected hidden>
-                          Topic Of Project
+                          Domain
                         </option>
                         <option>WebD</option>
                         <option>AppD</option>
@@ -427,7 +652,7 @@
                       <p class="card__price-only">Only</p>
                       <p class="card__price-value">$297</p>
                     </div> -->
-                      <a href="#popup" class="btnp btn--white">Enter</a>
+                      <!-- <a href="#popup" class="btnp btn--white">Enter</a> -->
                     </div>
                   </div>
                 </div>
@@ -458,9 +683,17 @@
                 <div class="card__side card__side--back card__side--back-1">
                   <div class="card__cta">
                     <div class="f_e f_input">
+                      <div class="f_e">
+                        <input
+                          type="text"
+                          class="f_input card_in2"
+                          placeholder="Name of Project"
+                          name="techonologies"
+                        />
+                      </div>
                       <select class="card_in f_input" name="topic">
                         <option value="" disabled selected hidden>
-                          Topic Of Project
+                          Domain
                         </option>
                         <option>WebD</option>
                         <option>AppD</option>
@@ -494,7 +727,7 @@
                         <p class="card__price-only">Only</p>
                               <p class="card__price-value">$297</p>
                             </div> -->
-                      <a href="#popup" class="btnp btn--white">Enter</a>
+                      <!-- <a href="#popup" class="btnp btn--white">Enter</a> -->
                     </div>
                   </div>
                 </div>
@@ -523,9 +756,17 @@
                 <div class="card__side card__side--back card__side--back-1">
                   <div class="card__cta">
                     <div class="f_e f_input">
+                      <div class="f_e">
+                        <input
+                          type="text"
+                          class="f_input card_in2"
+                          placeholder="Name of Project"
+                          name="techonologies"
+                        />
+                      </div>
                       <select class="card_in f_input" name="topic">
                         <option value="" disabled selected hidden>
-                          Topic Of Project
+                          Domain
                         </option>
                         <option>WebD</option>
                         <option>AppD</option>
@@ -559,7 +800,7 @@
                         <p class="card__price-only">Only</p>
                         <p class="card__price-value">$297</p>
                       </div> -->
-                      <a href="#popup" class="btnp btn--white">Enter</a>
+                      <!-- <a href="#popup" class="btnp btn--white">Enter</a> -->
                     </div>
                   </div>
                 </div>
@@ -571,10 +812,9 @@
 
         <div class="sub">
           <div class="end_txt">Thanks for registering!</div>
-          <button type="submit" class="sub_btn">REGISTER</button>
+          <button type="submit" class="btnp btn--white">REGISTER</button>
         </div>
       </form>
     </div>
-
   </body>
 </html>

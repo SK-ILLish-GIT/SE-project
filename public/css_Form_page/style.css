@@ -84,6 +84,9 @@ body {
   /* clip-path: polygon(0 0, 100% 0, 100% 80%, 0% 100%); */
   -webkit-clip-path: polygon(0 20%, 100% 0, 100% 80%, 0% 100%);
 }
+.education {
+  padding-top: 15%;
+}
 
 .sec_reg4 {
   background-image: -webkit-gradient(
@@ -187,7 +190,7 @@ body {
   transition: all 0.2s;
   text-align: right;
 }
-#u_mat{
+#u_mat {
   float: right;
   margin-bottom: 4vh;
   width: 51vh;
@@ -266,35 +269,35 @@ form {
   transform: skewY(2deg) skewX(15deg) scale(1.1);
   text-shadow: 0.5rem 1rem 2rem rgba(0, 0, 0, 0.2);
 }
-.regPro{
+.regPro {
   display: block;
   text-align: center;
   margin-top: 3%;
   padding-bottom: 3%;
 }
 
-.radi{
+.radi {
   width: 49%;
   display: inline-block;
 }
-.rad_but_in{
+.rad_but_in {
   display: none;
 }
-.rad_but_lab{
+.rad_but_lab {
   font-size: 1.6rem;
   cursor: pointer;
   position: relative;
-  padding-left: 4.5rem
+  padding-left: 4.5rem;
 }
-.rad_but{
+.rad_but {
   height: 3rem;
-    width: 3rem;
-    border: 5px solid #55c57a;
-    border-radius: 50%;
-    display: inline-block;
-    position: absolute;
-    left: 0;
-    top: -0.4rem;
+  width: 3rem;
+  border: 5px solid #55c57a;
+  border-radius: 50%;
+  display: inline-block;
+  position: absolute;
+  left: 0;
+  top: -0.4rem;
 }
 
 .heading {
@@ -340,7 +343,6 @@ form {
   border-radius: 3px;
 }
 
-
 /* radio */
 .form__radio-group {
   width: 40%;
@@ -356,7 +358,9 @@ form {
   opacity: 1;
 }
 
-.form__radio-input:checked ~ .form__radio-label_sport .form__radio-button::after {
+.form__radio-input:checked
+  ~ .form__radio-label_sport
+  .form__radio-button::after {
   opacity: 1;
 }
 
@@ -366,7 +370,6 @@ form {
   position: relative;
   padding-left: 4.5rem;
 }
-
 
 .form__radio-button {
   height: 3vh;
@@ -394,22 +397,22 @@ form {
   -webkit-transition: opacity 0.2s;
   transition: opacity 0.2s;
 }
-.hea{
+.hea {
   display: block;
   margin-bottom: 3vh;
 }
-.sport{
+.sport {
   font-size: 4vh;
   position: relative;
   padding-bottom: 4vh;
 }
-.form__radio-label_sport{
+.form__radio-label_sport {
   font-size: 3vh;
   cursor: pointer;
   position: relative;
   padding-left: 7.5vh;
 }
-.form_line{
+.form_line {
   width: 80%;
   position: relative;
   margin-left: 0;
@@ -420,6 +423,12 @@ form {
 /* cards  */
 .row .col-1-of-3 {
   width: 31%;
+  display: inline-block;
+  margin: 1%;
+}
+
+.row2 .col-1-of-2 {
+  width: 47%;
   display: inline-block;
   margin: 1%;
 }
@@ -542,12 +551,13 @@ form {
   transform: rotateY(0);
 }
 .card__cta {
-  position: absolute;
+  position: relative;
   top: 50%;
-  left: 45%;
+  left: 50%;
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
-  width: 90%;
+  width: 100%;
+  align-items: center;
   text-align: center;
 }
 .card__price-box {
@@ -555,6 +565,7 @@ form {
   color: #fff;
   margin-bottom: 8rem;
 }
+
 .card__price-only {
   font-size: 1.4rem;
   text-transform: uppercase;
@@ -570,6 +581,13 @@ form {
 .btn--white::after {
   background-color: #fff;
 }
+.btn--white {
+  background-color: #55c57a;
+  color: #fff;
+}
+.btn--white::after {
+  background-color: #55c57a;
+}
 .btnp,
 .btnp:link,
 .btnp:visited {
@@ -581,6 +599,7 @@ form {
   -webkit-transition: all 0.2s;
   transition: all 0.2s;
   position: relative;
+  margin-left: 3rem;
   font-size: 1.2rem;
   border: none;
   cursor: pointer;
@@ -648,14 +667,20 @@ form {
   -webkit-transform: translateY(0);
   transform: translateY(0);
 }
-.card_in{
+.card_in {
   margin-left: 12%;
   width: 80%;
   margin-bottom: 6%;
 }
-.card_in2{
+.card_in2 {
   margin-left: 12%;
   width: 66%;
+}
+.card_in2edu {
+  margin-left: 12%;
+  width: 23%;
+  margin-bottom: 5%;
+  float: left;
 }
 
 /* end */
@@ -668,11 +693,11 @@ form {
   /* float: right; */
   padding-bottom: 2%;
 }
-.end_txt{
+.end_txt {
   font-size: 1.5rem;
   display: inline-block;
 }
-.sub_btn{
+.sub_btn {
   text-transform: uppercase;
   text-decoration: none;
   padding: 2vh 4vh;
@@ -689,6 +714,6 @@ form {
   color: #fff;
 }
 
-.secq{
+.secq {
   width: 76%;
 }
