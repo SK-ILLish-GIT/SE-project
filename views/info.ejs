@@ -146,7 +146,7 @@
                                 <div class="col-6">
                                     <div class="social-info">
                                         <i class="fas fa-briefcase mr-2" style="color: #0dd324;"></i>
-                                        <span>UI/UX Designer</span>
+                                        <span>Student</span>
                                     </div>
                                 </div>
                             </div>
@@ -261,19 +261,20 @@
                             <%for(let i=0;i<currUser.projectInfo.name.length;i++){%>
                                 <%if(currUser.projectInfo.name[i]===null){%>
                                 <%break;}%>
-                                <div class="row">
-                                    <div class="col-lg-6">
-                                        <h4>Name: <%=currUser.projectInfo.name[i]%></h4>
+                                <div class="row r2">
+                                    <div>
+                                        <h4 class="ProName"> <%=currUser.projectInfo.name[i]%></h4>
                                     </div>
-                                    <div class="col-lg-6">
-
-                                        <p>Domain: <%=currUser.projectInfo.domain[i]%></p>
+                                    <div class="col-4">
+                                        <i class="fas fa-laptop-code mr-2" style="color: #0dd324;"></i>
+                                        <span>Domain: <%=currUser.projectInfo.domain[i]%></span>
                                     </div>
-                                    <div class="col-lg-6">
-
-                                        <p>Tech Stack: <%=currUser.projectInfo.technologies[i]%></p>
+                                    <div class="col-lg-4">
+                                        <i class="fas fa-cubes"></i>
+                                        <span>Tech Stack: <%=currUser.projectInfo.technologies[i]%></span>
                                     </div>
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-4">
+                                        <i class="fas fa-code-branch"></i>
                                         <a href=<%=currUser.projectInfo.githubRepo[i]%>>Github Repo</a>
                                     </div>
                                 </div>
