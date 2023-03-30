@@ -9,7 +9,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    <link rel="stylesheet" href="../public/css_Info/style.css">
+    <link rel="stylesheet" href="/css_Info/style.css">
 
 </head>
 
@@ -100,16 +100,16 @@
                 </div>
             </div>
             <div class="img" style=" padding: 0%;   background-image: linear-gradient(150deg, rgba(63, 174, 255, .3)15%, rgba(63, 174, 255, .3)70%,
-         rgba(63, 175, 255, 0.755)94%), url(../public/images_Info/wallpaper.jpg);
+         rgba(63, 175, 255, 0.755)94%), url(/images_Info/wallpaper.jpg);
         height: 500px;background-size: cover;"></div>
             <div class="card social-prof">
                 <div class="card-body">
                     <div class="wrapper">
-                        <img src="../public/images_Info/wallpaper.jpg" alt="" id="photo" class="user-profile">
+                        <img src="/images_Info/wallpaper.jpg" alt="" id="photo" class="user-profile">
                         <input type="file" id="photo_label">
                         <label for="photo_label" id="uploadButton">Choose Photo</label>
-                        <h3>Lorem ipsum dolor </h3>
-                        <p>professional engineering</p>
+                        <h3><%=currUser.basicInfo.name%> </h3>
+                        <p><%= currUser.userName%></p>
                     </div>
 
                 </div>
@@ -126,13 +126,13 @@
                                 <div class="col-6">
                                     <div class="social-info">
                                         <i class="fas fa-birthday-cake mr-2" style="color: #0dd324;"></i>
-                                        <span>19/08/2023</span>
+                                        <span><%= currUser.basicInfo.birthdate%></span>
                                     </div>
                                 </div>
                                 <div class="col-6">
                                     <div class="social-info">
                                         <i class="fas fa-map-marker-alt mr-2" style="color: #0dd324;"></i>
-                                        <span>Lorem ipsum dolor sit amet.</span>
+                                        <span><%=currUser.addressInfo.address+", "+currUser.addressInfo.city+", "+currUser.addressInfo.state+"-"+currUser.addressInfo.zipCode %></span>
                                     </div>
                                 </div>
                             </div>
@@ -140,7 +140,7 @@
                                 <div class="col-6">
                                     <div class="social-info">
                                         <i class="fas fas fa-users mr-2" style="color: #0dd324;"></i>
-                                        <span>Gender</span>
+                                        <span><%=currUser.basicInfo.gender%></span>
                                     </div>
                                 </div>
                                 <div class="col-6">
@@ -155,13 +155,13 @@
                                     <div class="social-info">
 
                                         <i class="fas fas fa-mobile mr-2" style="color: #0dd324;"></i>
-                                        <span>8392832983</span>
+                                        <span><%= currUser.basicInfo.phoneNo%></span>
                                     </div>
                                 </div>
                                 <div class="col-6">
                                     <div class="social-info">
                                         <i class="fas fas fa-envelope mr-2" style="color: #0dd324;"></i>
-                                        <span>Loremipsum@example.com</span>
+                                        <span><%= currUser.basicInfo.email%></span>
                                     </div>
                                 </div>
                                 <h4><strong>Hobbies</strong></h4>
@@ -175,53 +175,29 @@
                 <div class="col-lg-6">
                     <div class="card info-card" style="height:380px">
                         <div class="card-body">
-                            <h2 class="text-blue">Skills</h2>
-                            <div class="row">
-                                <div class="col-lg-6">
-                                    <h4>HTML5</h4>
-
-                                </div>
-                                <div class="col-lg-6">
-                                    <h4>Bootstrap Framework</h4>
-                                    <div class="mb-3">
-
+                            <h2 class="text-blue">Tecnical Skills</h2>
+                            <%for(let i=0;i<currUser.skillsInfo.skills.length;i++){%>
+                                <%if(i%2==0){%>
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <h4><%=currUser.skillsInfo.skills[i]%></h4>
+        
+                                        </div>   
+                                <%}else{%>
+                                    <div class="col-lg-6">
+                                        <h4><%=currUser.skillsInfo.skills[i]%></h4>
+                                        <div class="mb-3">
+    
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-lg-6">
-                                    <h4>Vanilla Javascript</h4>
-                                    <div class="mb-3">
-
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <h4>Angular Js</h4>
-                                    <div class="mb-3">
-
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-lg-6">
-                                    <h4>Adobe Photoshop</h4>
-
-                                </div>
-                                <div class="col-lg-6">
-                                    <h4>Adobe Illustrator</h4>
-
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-lg-6">
-                                    <h4>SASS/SCSS</h4>
-
-                                </div>
-                                <div class="col-lg-6">
-                                    <h4>WORDPRES </h4>
-
-                                </div>
-                            </div>
+                                <%}%>
+                                
+                                    
+                            <% } %>
+                            <h2 class="text-blue">Non-Tecnical Skills</h2>
+                            
+                            
                         </div>
                     </div>
                 </div>
@@ -288,7 +264,7 @@
             </div>
         </div>
 
-        <script src="app.js"></script>
+        <script src="/js/info.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
             crossorigin="anonymous"></script>
