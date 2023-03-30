@@ -228,8 +228,8 @@
                             <h2 class="text-blue">Education</h2>
                             <div class="row">
                                 <div class="col-lg-6">
-                                    <h4><strong>Tell College Name </strong></h4>
-                                    <p>May 2009 to June 2011 </p>
+                                    <h4><strong><%= currUser.educationInfo.cName %></strong></h4>
+                                    <p><%= currUser.educationInfo.cStart %> to <%= currUser.educationInfo.cEnd %></p>
 
                                 </div>
                                 <div class="col-lg-6">
@@ -238,8 +238,8 @@
                                         incididunt ut labore et dolore magna aliqua. </p>
                                 </div>
                                 <div class="col-lg-6">
-                                    <h4><strong>Tell About Highschool</strong></h4>
-                                    <p>Aug 2004 to June 2009 </p>
+                                    <h4><strong><%= currUser.educationInfo.hsName %></strong></h4>
+                                    <p><%= currUser.educationInfo.cName %> </p>
                                 </div>
                                 <div class="col-lg-6">
                                     <h4><strong>Graduation </strong></h4>
@@ -255,7 +255,7 @@
                     <div class="card info-card" style="height:380px">
                         <div class="card-body">
                             <h2 class="text-blue">Projects</h2>
-                            
+
                             <%for(let i=0;i<currUser.projectInfo.name.length;i++){%>
                                 <%if(currUser.projectInfo.name[i]===null){%>
                                 <%break;}%>
