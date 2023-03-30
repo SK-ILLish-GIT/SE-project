@@ -108,8 +108,12 @@
                         <img src="/images_Info/wallpaper.jpg" alt="" id="photo" class="user-profile">
                         <input type="file" id="photo_label">
                         <label for="photo_label" id="uploadButton">Choose Photo</label>
-                        <h3><%=currUser.basicInfo.name%> </h3>
-                        <p><%= currUser.userName%></p>
+                        <h3>
+                            <%=currUser.basicInfo.name%>
+                        </h3>
+                        <p>
+                            <%= currUser.userName%>
+                        </p>
                     </div>
 
                 </div>
@@ -126,13 +130,18 @@
                                 <div class="col-6">
                                     <div class="social-info">
                                         <i class="fas fa-birthday-cake mr-2" style="color: #0dd324;"></i>
-                                        <span><%= currUser.basicInfo.birthdate%></span>
+                                        <span>
+                                            <%= currUser.basicInfo.birthdate%>
+                                        </span>
                                     </div>
                                 </div>
                                 <div class="col-6">
                                     <div class="social-info">
                                         <i class="fas fa-map-marker-alt mr-2" style="color: #0dd324;"></i>
-                                        <span><%=currUser.addressInfo.address+", "+currUser.addressInfo.city+", "+currUser.addressInfo.state+"-"+currUser.addressInfo.zipCode %></span>
+                                        <span>
+                                            <%=currUser.addressInfo.address+", "+currUser.addressInfo.city+"
+                                                , "+currUser.addressInfo.state+" -"+currUser.addressInfo.zipCode %>
+                                        </span>
                                     </div>
                                 </div>
                             </div>
@@ -140,7 +149,9 @@
                                 <div class="col-6">
                                     <div class="social-info">
                                         <i class="fas fas fa-users mr-2" style="color: #0dd324;"></i>
-                                        <span><%=currUser.basicInfo.gender%></span>
+                                        <span>
+                                            <%=currUser.basicInfo.gender%>
+                                        </span>
                                     </div>
                                 </div>
                                 <div class="col-6">
@@ -155,13 +166,17 @@
                                     <div class="social-info">
 
                                         <i class="fas fas fa-mobile mr-2" style="color: #0dd324;"></i>
-                                        <span><%= currUser.basicInfo.phoneNo%></span>
+                                        <span>
+                                            <%= currUser.basicInfo.phoneNo%>
+                                        </span>
                                     </div>
                                 </div>
                                 <div class="col-6">
                                     <div class="social-info">
                                         <i class="fas fas fa-envelope mr-2" style="color: #0dd324;"></i>
-                                        <span><%= currUser.basicInfo.email%></span>
+                                        <span>
+                                            <%= currUser.basicInfo.email%>
+                                        </span>
                                     </div>
                                 </div>
                                 <h4><strong>Hobbies</strong></h4>
@@ -180,41 +195,49 @@
                                 <%if(i%2==0){%>
                                     <div class="row">
                                         <div class="col-lg-6">
-                                            <h4><%=currUser.skillsInfo.technicalSkills[i]%></h4>
+                                            <h4>
+                                                <%=currUser.skillsInfo.technicalSkills[i]%>
+                                            </h4>
 
                                         </div>
-                                <%}else{%>
-                                    <div class="col-lg-6">
-                                        <h4><%=currUser.skillsInfo.technicalSkills[i]%></h4>
-                                        <div class="mb-3">
+                                        <%}else{%>
+                                            <div class="col-lg-6">
+                                                <h4>
+                                                    <%=currUser.skillsInfo.technicalSkills[i]%>
+                                                </h4>
+                                                <div class="mb-3">
 
-                                        </div>
+                                                </div>
+                                            </div>
                                     </div>
-                                </div>
-                                <%}%>
+                                    <%}%>
 
 
-                            <% } %>
-                            <h2 class="text-blue">Non-Tecnical Skills</h2>
-                            <%for(let i=0;i<currUser.skillsInfo.nontechnicalSkills.length;i++){%>
-                                <%if(i%2==0){%>
-                                    <div class="row">
-                                        <div class="col-lg-6">
-                                            <h4><%=currUser.skillsInfo.nontechnicalSkills[i]%></h4>
+                                        <% } %>
+                                            <h2 class="text-blue">Non-Tecnical Skills</h2>
+                                            <%for(let i=0;i<currUser.skillsInfo.nontechnicalSkills.length;i++){%>
+                                                <%if(i%2==0){%>
+                                                    <div class="row">
+                                                        <div class="col-lg-6">
+                                                            <h4>
+                                                                <%=currUser.skillsInfo.nontechnicalSkills[i]%>
+                                                            </h4>
 
-                                        </div>
-                                <%}else{%>
-                                    <div class="col-lg-6">
-                                        <h4><%=currUser.skillsInfo.nontechnicalSkills[i]%></h4>
-                                        <div class="mb-3">
+                                                        </div>
+                                                        <%}else{%>
+                                                            <div class="col-lg-6">
+                                                                <h4>
+                                                                    <%=currUser.skillsInfo.nontechnicalSkills[i]%>
+                                                                </h4>
+                                                                <div class="mb-3">
 
-                                        </div>
-                                    </div>
-                                </div>
-                                <%}%>
+                                                                </div>
+                                                            </div>
+                                                    </div>
+                                                    <%}%>
 
 
-                            <% } %>
+                                                        <% } %>
 
 
                         </div>
@@ -228,7 +251,9 @@
                             <h2 class="text-blue">Education</h2>
                             <div class="row">
                                 <div class="col-lg-6">
-                                    <h4><strong><%=  =></strong></h4>
+                                    <h4><strong>
+                                            <%= currUser.educationInfo.cName %>
+                                        </strong></h4>
                                     <p>May 2009 to June 2011 </p>
 
                                 </div>
@@ -238,7 +263,9 @@
                                         incididunt ut labore et dolore magna aliqua. </p>
                                 </div>
                                 <div class="col-lg-6">
-                                    <h4><strong>Tell About Highschool</strong></h4>
+                                    <h4><strong>
+                                            <%= currUser.educationInfo.hsName %>
+                                        </strong></h4>
                                     <p>Aug 2004 to June 2009 </p>
                                 </div>
                                 <div class="col-lg-6">
@@ -258,24 +285,27 @@
 
                             <%for(let i=0;i<currUser.projectInfo.name.length;i++){%>
                                 <%if(currUser.projectInfo.name[i]===null){%>
-                                <%break;}%>
-                                <div class="row">
-                                    <div class="col-lg-6">
-                                        <h4>Name: <%=currUser.projectInfo.name[i]%></h4>
-                                    </div>
-                                    <div class="col-lg-6">
+                                    <%break;}%>
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <h4>Name: <%=currUser.projectInfo.name[i]%>
+                                                </h4>
+                                            </div>
+                                            <div class="col-lg-6">
 
-                                        <p>Domain: <%=currUser.projectInfo.domain[i]%></p>
-                                    </div>
-                                    <div class="col-lg-6">
+                                                <p>Domain: <%=currUser.projectInfo.domain[i]%>
+                                                </p>
+                                            </div>
+                                            <div class="col-lg-6">
 
-                                        <p>Tech Stack: <%=currUser.projectInfo.technologies[i]%></p>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <a href=<%=currUser.projectInfo.githubRepo[i]%>>Github Repo</a>
-                                    </div>
-                                </div>
-                            <%}%>
+                                                <p>Tech Stack: <%=currUser.projectInfo.technologies[i]%>
+                                                </p>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <a href=<%=currUser.projectInfo.githubRepo[i]%>>Github Repo</a>
+                                            </div>
+                                        </div>
+                                        <%}%>
 
 
                         </div>
