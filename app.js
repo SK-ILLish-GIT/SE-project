@@ -262,6 +262,24 @@ app.post("/sign-in", (req, res) => {
     };
     findUser();
 });
+app.post("/search",(req,res)=>{
+    const searchUser=req.body.search;
+    const findUser = async () => {
+        try {
+             const newCurrUser = await user.findOne({ userName: searchUser });
+            if (newCurrUser === null)
+                res.redirect("/home");
+            else {
+                res.render("info",{currUser:newCurrUser});
+            }
+        }
+        catch (error) {
+            console.log("Error in searching user - " + error);
+        }
+
+    };
+    findUser();
+});
 
 //////////////////////////////nodemailer//////////////////////////////////
 
