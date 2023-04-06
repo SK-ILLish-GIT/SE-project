@@ -2,12 +2,34 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const app = express();
 const mongoose = require("mongoose");
+//*******************for passport**************************
+const session = require('express-session');
+const passport = require("passport");
+const passportLocalMongoose = require("passport-local-mongoose");
 // const nodemailer = require('nodemailer');
 
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(__dirname + '/public'));
-let currUser=null;
+// let currUser=null;
+//******************** for passport ******************************************
+app.use(session({
+    secret: "our little secret.",
+    resave: false,
+    saveUninitialized: false
+
+}));
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+passport.serializeUser(function(user, done) {
+    done(null, user);
+  });
+  
+  passport.deserializeUser(function(user, done) {
+    done(null, user);
+  });
 
 //////////////////////////////Mongoose connection and Schema////////////////////////////////////////////////////////
 const connect = async () => {
@@ -42,7 +64,7 @@ const skillsInfoSchema=mongoose.Schema({
 });
 const skillInfo=mongoose.model("skillInfo",skillsInfoSchema);
 const loginInfoSchema=mongoose.Schema({
-    userName:{ type: String, required: true },
+    username:{ type: String, required: true },
     password:{ type: String, required: true },
     securityQuestion:String,
     answer:String
@@ -72,8 +94,20 @@ const educationInfoSchema=mongoose.Schema({
 });
 const educationInfo=mongoose.model("education",educationInfoSchema);
 const hobbies=mongoose.model("hobbies",hobbiesInfoSchema);
+
+//********************************************************************************************************
+// const userIdentificationSchema = new mongoose.Schema({
+//     userName:String,
+//     password:String
+// });
+
+// userIdentificationSchema.plugin(passportLocalMongoose);
+
+// const myUser  = mongoose.model("myUser",userIdentificationSchema);
+//**********************************************************************************************************
+
 const userSchema = mongoose.Schema({
-    userName:String,
+    username:String,
     password:String,
     basicInfo:basicInfoSchema,
     addressInfo:addressInfoSchema,
@@ -83,6 +117,9 @@ const userSchema = mongoose.Schema({
     hobbiesInfo:hobbiesInfoSchema,
     educationInfo:educationInfoSchema
 });
+
+userSchema.plugin(passportLocalMongoose);
+
 const user = mongoose.model("user", userSchema);
 
 // const Zia = new Users({
@@ -113,17 +150,44 @@ app.get("/sign-in", (req, res) => {
     res.sendFile(__dirname + "/LogIn/sign_in.html");
 });
 app.get("/home", (req, res) => {
-    res.render("home");
+    if (req.user) {
+        res.render("home");
+    } else {
+        res.redirect('/sign-in');
+    }
 });
 app.get("/register", (req, res) => {
     res.sendFile(__dirname + "/Form_page/index.html");
-})
+});
+
 app.get("/sign-in/security",(req,res)=>{
     res.render("security_question");
 });
+
 app.get("/info",(req,res)=>{
-    res.render("info",{currUser:currUser});
-})
+    if (req.user) {
+        // console.log(req.user);
+        const getDocument = async() =>{
+            try {
+                const foundUser = await user.findOne({username: req.user.username});
+                    res.render("info",{currUser:foundUser});
+            } catch (e) {
+                console.log(e);
+            }   
+        }
+
+        getDocument();
+    } else {
+        res.redirect('/sign-in');
+    }
+});
+
+app.get('/logout', function(req, res, next){
+    req.logout(function(err) {
+      if (err) { return next(err); }
+      res.redirect('/sign-in');
+    });
+  });
 
 app.post("/register",(req,res)=>{
     console.log(req.body);
@@ -139,7 +203,7 @@ app.post("/register",(req,res)=>{
             address:req.body.address,
             city:req.body.city,
             state:req.body.state,
-            zipCode:req.body.zipCode
+            zipCode:req.body.zipCode 
         });
         newUserAddressInfo.save();
 
@@ -150,7 +214,7 @@ app.post("/register",(req,res)=>{
         newUserSkillsInfo.save();
 
         const newUserLoginInfo=new loginInfo({
-            userName:req.body.userName,
+            username:req.body.userName,
             password:req.body.password,
             securityQuestion:req.body.securityQuestion,
             answer:req.body.answer
@@ -198,9 +262,9 @@ app.post("/register",(req,res)=>{
             cBranch:req.body.cBranch,
         });
         newUserEducationInfo.save();
-
+        
         const newUser=new user({
-            userName:req.body.userName,
+            username:req.body.userName,
             password:req.body.password,
             basicInfo:newUserBasicInfo,
             addressInfo:newUserAddressInfo,
@@ -210,9 +274,17 @@ app.post("/register",(req,res)=>{
             hobbiesInfo:newUserHobbiesInfo,
             educationInfo:newUserEducationInfo
         });
-        newUser.save();
-
-        res.redirect("/sign-in");
+        user.register(newUser,req.body.password,function(err,user){
+            if(err){
+                console.log(err);
+                res.redirect("/register");
+            }else{
+                passport.authenticate("local")(req,res,function(){
+                    console.log("user is authenticated");
+                    res.redirect("/sign-in");
+                });
+            }
+        });
 
 });
 app.post("/sign-in/security",(req,res)=>{
@@ -238,35 +310,26 @@ app.post("/sign-in/security",(req,res)=>{
 });
 
 app.post("/sign-in", (req, res) => {
-    // console.log(req.body);
-    const currUserName = req.body.userName, currUserPassword = req.body.password;
-    const findUser = async () => {
-        try {
-             const newCurrUser = await user.findOne({ userName: currUserName });
-            if (newCurrUser === null)
-                res.redirect("/register");
-            else {
-                if (newCurrUser.password === currUserPassword)
-                {
-                    currUser=newCurrUser;
-                    res.redirect("/home");
-                }
-                else
-                    res.send("<h1>Wrong password</h1>");
-            }
+    const newUser=new user({
+        username:req.body.userName,
+        password:req.body.password,
+    });
+    req.login(newUser, function(err){
+        if(err){
+            res.redirect("/sign-in");
+            console.log(err);
+        }else{
+            passport.authenticate("local")(req,res,function(){
+                res.redirect("/home");
+            });
         }
-        catch (error) {
-            console.log("Error in finding user - " + error);
-        }
-
-    };
-    findUser();
+    })
 });
 app.post("/search",(req,res)=>{
     const searchUser=req.body.search;
     const findUser = async () => {
         try {
-             const newCurrUser = await user.findOne({ userName: searchUser });
+             const newCurrUser = await user.findOne({ username: searchUser });
             if (newCurrUser === null)
                 res.redirect("/home");
             else {
@@ -328,7 +391,7 @@ app.post("/search",(req,res)=>{
 //     // send mail with defined transport object
 //     let info = await transporter.sendMail({
 //         from: '"Fred Foo 👻" <foo@example.com>', // sender address
-//         to: "bar@example.com, baz@example.com", // list of receivers
+//         to: "bar@example.com, baz@example.com", // list of receiversa
 //         subject: "Hello ✔", // Subject line
 //         text: "Hello world?", // plain text body
 //         html: "<b>Hello world?</b>", // html body
