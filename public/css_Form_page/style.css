@@ -55,6 +55,20 @@ body {
   clip-path: polygon(0 0, 100% 0, 100% 80%, 0% 100%);
   -webkit-clip-path: polygon(0 0, 100% 0, 100% 80%, 0% 100%);
 }
+
+.sec_regfeedback {
+  padding: 3% 0;
+  height: 70vh;
+  background-image: -webkit-gradient(
+    linear,
+    left top,
+    right bottom,
+    from(#7ed56f),
+    to(#28b485)
+  );
+  background-image: linear-gradient(to right bottom, #7ed56f, #28b485);
+}
+
 .sec_reg2 {
   background-image: -webkit-gradient(
     linear,
