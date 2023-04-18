@@ -110,6 +110,7 @@ const hobbies = mongoose.model("hobbies", hobbiesInfoSchema);
 const userSchema = mongoose.Schema({
   username: String,
   password: String,
+  admin:Number,
   basicInfo: basicInfoSchema,
   addressInfo: addressInfoSchema,
   skillsInfo: skillsInfoSchema,
@@ -148,11 +149,26 @@ app.get("/sign-in", (req, res) => {
   res.sendFile(__dirname + "/LogIn/sign_in.html");
 });
 app.get("/home", (req, res) => {
+
   if (req.user) {
-    res.render("home");
+    // console.log(req.user);
+    const getDocument = async () => {
+      try {
+        const foundUser = await user.findOne({ username: req.user.username });
+        if(foundUser===null)
+        res.redirect("/register");
+        else
+        res.render("home", { currUser: foundUser });
+      } catch (e) {
+        console.log(e);
+      }
+    };
+
+    getDocument();
   } else {
     res.redirect("/sign-in");
   }
+  
 });
 app.get("/register", (req, res) => {
   res.sendFile(__dirname + "/Form_page/index.html");
@@ -286,6 +302,7 @@ app.post("/register", (req, res) => {
   const newUser = new user({
     username: req.body.userName,
     password: req.body.password,
+    admin:0,
     basicInfo: newUserBasicInfo,
     addressInfo: newUserAddressInfo,
     skillsInfo: newUserSkillsInfo,
@@ -329,6 +346,7 @@ app.post("/sign-in", (req, res) => {
     username: req.body.userName,
     password: req.body.password,
   });
+  console.log(newUser);
   req.login(newUser, function (err) {
     if (err) {
       res.redirect("/sign-in");

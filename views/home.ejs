@@ -101,7 +101,7 @@
                 </div>
             </div>
         </section>
-        <section class="section-features">
+        <!-- <section class="section-features">
             <div class="u-center-text u-margin-bottom-big">
                 <h2 class="heading-secondary-white">
                     HEADING
@@ -172,7 +172,7 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section> -->
         <!-- <section class="signUp">
             <div class="container-sign-up">
                 <div class="centered-sign-up">
@@ -230,44 +230,47 @@
                 </div>
             </div>
         </section> -->
-        <section class="container-admin-operation">
-            <div class="u-center-text u-margin-bottom-big">
-                <h2 class="heading-secondary-white heading-admin-operation">
-                    MODIFY DATABASE
-                </h2>
-            </div>
-            <div class="row row-admin-operation">
-                <div class="col-1-of-4-features">
-                    <button class="btn btn-square btn-add btn--animated ">
-                        <a href="/register">
-                            ADD
-                        </a>
-                    </button>
+        <%if(currUser.admin===1){%>
+            <section class="container-admin-operation">
+                <div class="u-center-text u-margin-bottom-big">
+                    <h2 class="heading-secondary-white heading-admin-operation">
+                        MODIFY DATABASE
+                    </h2>
                 </div>
-                <div class="col-1-of-4-features">
-                    <button class="btn btn-square btn-update btn--animated ">
-                        <a href="/change">
-                            UPDATE
-                        </a>
-                    </button>
+                <div class="row row-admin-operation">
+                    <div class="col-1-of-4-features">
+                        <button class="btn btn-square btn-add btn--animated ">
+                            <a href="/register">
+                                ADD
+                            </a>
+                        </button>
+                    </div>
+                    <div class="col-1-of-4-features">
+                        <button class="btn btn-square btn-update btn--animated ">
+                            <a href="/change">
+                                UPDATE
+                            </a>
+                        </button>
+                    </div>
+                    <div class="col-1-of-4-features">
+                        <button class="btn btn-square btn-search btn--animated">
+                            <a href="#section-about">
+                                SEARCH
+                            </a>
+                        </button>
+                    </div>
+    
+                    <div class="col-1-of-4-features">
+                        <button class="btn btn-square btn-delete btn--animated">
+                            <a>
+                                DELETE
+                            </a>
+                        </button>
+                    </div>
                 </div>
-                <div class="col-1-of-4-features">
-                    <button class="btn btn-square btn-search btn--animated">
-                        <a href="#section-about">
-                            SEARCH
-                        </a>
-                    </button>
-                </div>
-
-                <div class="col-1-of-4-features">
-                    <button class="btn btn-square btn-delete btn--animated">
-                        <a>
-                            DELETE
-                        </a>
-                    </button>
-                </div>
-            </div>
-        </section>
+            </section>
+        <%}%>
+        
         <footer class="footer">
             <div class="footer__logo-box">
 
