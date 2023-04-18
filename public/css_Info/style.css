@@ -483,3 +483,26 @@ ul.friend-list .right p {
   float: left;
   margin: 6px;
 }
+
+.edit-button {
+  background-color: var(--color-primary);
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.edit-button:hover {
+  background-color: var(--color-primary-dark);
+}
+
+.edit-button a {
+  color: white;
+  text-decoration: none;
+}
+
+.edit-button i {
+  margin-right: 5px;
+}
