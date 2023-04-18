@@ -151,7 +151,7 @@
                         type="text"
                         class="f_input"
                         id="u_s1"
-                        placeholder="Skill 1"
+                        value=<%= currUser.skillsInfo.technicalSkills[0]%>
                         name="user_tech"
                       />
                     </div>
@@ -162,6 +162,7 @@
                         type="text"
                         class="f_input"
                         id="u_s2"
+                        value=<%= currUser.skillsInfo.technicalSkills[1]%>
                         name="user_tech"
                       />
                     </div>
@@ -171,7 +172,7 @@
                         type="text"
                         class="f_input"
                         id="u_s3"
-                        placeholder="Skill 3"
+                        value=<%= currUser.skillsInfo.technicalSkills[2]%>
                         name="user_tech"
                       />
                     </div>
@@ -181,7 +182,7 @@
                         type="text"
                         class="f_input"
                         id="u_s4"
-                        placeholder="Skill 4"
+                        value=<%= currUser.skillsInfo.technicalSkills[3]%>
                         name="user_tech"
                       />
                     </div>
@@ -206,7 +207,7 @@
                       <input
                         type="text"
                         class="f_input2 f_r"
-                        placeholder="Skill 1"
+                        value=<%= currUser.skillsInfo.nontechnicalSkills[0]%>
                         name="user_non_tech"
                       />
                     </div>
@@ -214,7 +215,7 @@
                       <input
                         type="text"
                         class="f_input2 f_r"
-                        placeholder="Skill 2"
+                        value=<%= currUser.skillsInfo.nontechnicalSkills[1]%>
                         name="user_non_tech"
                       />
                     </div>
@@ -222,7 +223,7 @@
                       <input
                         type="text"
                         class="f_input2 f_r"
-                        placeholder="Skill 3"
+                        value=<%= currUser.skillsInfo.nontechnicalSkills[2]%>
                         name="user_non_tech"
                       />
                     </div>
@@ -230,7 +231,7 @@
                       <input
                         type="text"
                         class="f_input2 f_r"
-                        placeholder="Skill 4"
+                        value=<%= currUser.skillsInfo.nontechnicalSkills[3]%>
                         name="user_non_tech"
                       />
                     </div>
@@ -275,13 +276,13 @@
                         <input
                           type="text"
                           class="f_input card_in2"
-                          placeholder="Name of School"
+                          value=<%= currUser.educationInfo.hsName%>
                           name="hsName"
                         />
                       </div>
                       <div class="f_e">
                         <input
-                        placeholder="Year of joining"
+                        value=<%= currUser.educationInfo.Start%>
                         type="text"
                         onfocus="(this.type = 'month')"
                           class="f_input card_in2edu "
@@ -290,7 +291,7 @@
                       </div>
                       <div class="f_e">
                         <input
-                        placeholder="Year of Leaving"
+                        value=<%= currUser.educationInfo.hsEnd%>
                         type="text"
                         onfocus="(this.type = 'month')"
                           class="f_input card_in2edu "
@@ -301,7 +302,7 @@
                         <input
                           type="text"
                           class="f_input card_in2"
-                          placeholder="Percentage Secured"
+                          value=<%= currUser.educationInfo.hsPercentage%>
                           name="hsPercentage"
                         />
                       </div>
@@ -345,13 +346,13 @@
                           <input
                             type="text"
                             class="f_input card_in2"
-                            placeholder="Name of College"
+                            value=<%= currUser.educationInfo.cName%>
                             name="cName"
                           />
                         </div>
                         <div class="f_e">
                           <input
-                          placeholder="Year of joining"
+                          value=<%= currUser.educationInfo.cStart%>
                           type="text"
                           onfocus="(this.type = 'month')"
                             class="f_input card_in2edu "
@@ -360,7 +361,7 @@
                         </div>
                         <div class="f_e">
                           <input
-                          placeholder="Year of Leaving"
+                          value=<%= currUser.educationInfo.cEnd%>
                           type="text"
                           onfocus="(this.type = 'month')"
                             class="f_input card_in2edu "
@@ -371,7 +372,7 @@
                           <input
                             type="text"
                             class="f_input card_in2"
-                            placeholder="Branch"
+                            value=<%= currUser.educationInfo.cBranch%>
                             name="cBranch"
                           />
                         </div>
@@ -379,7 +380,7 @@
                           <input
                             type="text"
                             class="f_input card_in2"
-                            placeholder="CGPA Secured"
+                            value=<%= currUser.educationInfo.cCg%>
                             name="cCg"
                           />
                         </div>
@@ -483,6 +484,9 @@
                           class="form__radio-input"
                           id="cricket"
                           name="cricket"
+                         <% if (currUser.hobbiesInfo.sports.includes('Cricket')) {%>
+                           checked 
+                          <% } %>
                         />
                         <label for="cricket" class="form__radio-label">
                           <span class="form__radio-button"></span>
@@ -496,6 +500,9 @@
                           class="form__radio-input"
                           id="Football"
                           name="football"
+                          <% if (currUser.hobbiesInfo.sports.includes('football')) {%>
+                            checked 
+                           <% } %>
                         />
                         <label for="Football" class="form__radio-label">
                           <span class="form__radio-button"></span>
@@ -509,6 +516,9 @@
                           class="form__radio-input"
                           id="BasketBall"
                           name="basketBall"
+                          <% if (currUser.hobbiesInfo.sports.includes('Basket ball')) {%>
+                            checked 
+                           <% } %>
                         />
                         <label for="BasketBall" class="form__radio-label">
                           <span class="form__radio-button"></span>
@@ -527,6 +537,9 @@
                         class="form__radio-input"
                         id="small"
                         name="music"
+                        <% if (currUser.hobbiesInfo.sports.includes('music')) {%>
+                          checked 
+                         <% } %>
                       />
                       <label for="small" class="form__radio-label">
                         <span class="form__radio-button"></span>
@@ -539,6 +552,9 @@
                         class="form__radio-input"
                         id="large"
                         name="arts"
+                        <% if (currUser.hobbiesInfo.sports.includes('arts')) {%>
+                          checked 
+                         <% } %>
                       />
                       <label for="large" class="form__radio-label">
                         <span class="form__radio-button"></span>
@@ -548,10 +564,10 @@
                     <input
                       type="text"
                       id="u_hobby"
-                      placeholder="Other hobbies"
                       class="f_input"
                       style="margin-top: 5%"
                       name="otherHobbies"
+                      value=<%=currUser.hobbiesInfo.others%>
                     />
                   </div>
                 </div>
@@ -591,7 +607,7 @@
                         <input
                           type="text"
                           class="f_input card_in2"
-                          placeholder="Name of Project"
+                          value=<%=currUser.projectInfo.name[0]%>
                           name="Pname"
                         />
                       </div>
@@ -666,7 +682,7 @@
                         <input
                           type="text"
                           class="f_input card_in2"
-                          placeholder="Name of Project"
+                          value=<%=currUser.projectInfo.name[1]%>
                           name="Pname"
                         />
                       </div>
@@ -739,7 +755,7 @@
                         <input
                           type="text"
                           class="f_input card_in2"
-                          placeholder="Name of Project"
+                          value=<%=currUser.projectInfo.name[2]%>
                           name="Pname"
                         />
                       </div>

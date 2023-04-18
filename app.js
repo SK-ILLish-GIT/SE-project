@@ -65,8 +65,8 @@ const skillsInfoSchema = mongoose.Schema({
 });
 const skillInfo = mongoose.model("skillInfo", skillsInfoSchema);
 const loginInfoSchema = mongoose.Schema({
-  username: { type: String, required: true },
-  password: { type: String, required: true },
+  // username: { type: String, required: true },
+  // password: { type: String, required: true },
   securityQuestion: String,
   answer: String,
 });
@@ -239,8 +239,8 @@ app.post("/register", (req, res) => {
   newUserSkillsInfo.save();
 
   const newUserLoginInfo = new loginInfo({
-    username: req.body.userName,
-    password: req.body.password,
+    // username: req.body.userName,
+    // password: req.body.password,
     securityQuestion: req.body.securityQuestion,
     answer: req.body.answer,
   });
@@ -377,66 +377,45 @@ app.post("/change", (req, res) => {
   if (req.user) {
     const getDocument = async () => {
       try {
-       const foundUser = await user.findOne({ username: req.user.username });
-        res.render("change", { currUser: foundUser });
+        const foundUser = await user.findOne({ username: req.user.username });
+        console.log("Found user:", foundUser);
 
-        console.log(req.body);
-    const user_name = req.body.name ||  foundUser.name;
-    // const user_password = req.body.name ||  foundUser.name;
-    const user_birthdate = req.body.birthdate ||  foundUser.birthdate;
-    const user_email = req.body.email ||  foundUser.email;
-    const user_phone = req.body.phoneNo ||  foundUser.phoneNo;
-    const user_address = req.body.address ||  foundUser.address;
-    // const user_city = req.body.city ||  foundUser.city;
-    // const user_zipCode = req.body.zipCode ||  foundUser.zipCode;
-    // const user_state = req.body.state ||  foundUser.state;
-    // const user_tech_skill = new Array(req.body.user_tech ||  foundUser.user_tech);
-    // const user_non_tech_skill = new Array(req.body.user_non_tech ||  foundUser.user_non_tech);
-    // const user_hsName = req.body.hsName ||  foundUser.hsName;
-    // const user_hsStart = req.body.hsStart ||  foundUser.hsStart;
-    // const user_hsEnd = req.body.hsEnd ||  foundUser.hsEnd;
-    // const user_hsPercentage = req.body.hsPercentage ||  foundUser.hsPercentage;
-    // const user_cName = req.body.cName ||  foundUser.cName;
-    // const user_cBranch = req.body.cBranch ||  foundUser.cBranch;
-    // const user_cCg = req.body.cCg ||  foundUser.cCg;
-    // const user_otherHobbies = req.body.otherHobbies ||  foundUser.otherHobbies;
-    // const user_cEnd = req.body.cEnd ||  foundUser.cEnd;
-    // const user_cEnd = req.body.cEnd ||  foundUser.cEnd;
-
-
-    
-
-    // console.log(user_name);
-    try {
-      const updateDocument = async(_id)=>{
-        const result = await user.updateOne({_id},{
-          $set:{
-            name:user_name,
-            birthdate:user_birthdate,
-            email:user_email,
-            phoneNo:user_phone,
-            address:user_address
-            // city:user_city
+        const updatedFields = {
+          basicInfo: {
+            name: req.body.name || foundUser.basicInfo.name,
+            email: req.body.email || foundUser.basicInfo.email,
+            phone: req.body.phone || foundUser.basicInfo.phone
+          },
+          address: {
+            street: req.body.street || foundUser.address.street,
+            city: req.body.city || foundUser.address.city,
+            state: req.body.state || foundUser.address.state,
+            country: req.body.country || foundUser.address.country,
+            zipcode: req.body.zipcode || foundUser.address.zipcode
           }
-        })
-      }
-      updateDocument(foundUser._id);
-    } catch (e) {
-      console.log(e);
-    }
-    res.redirect("/info");
+          // Add other fields to update here
+        };
 
+        const updatedUser = await user.findByIdAndUpdate(
+          foundUser._id,
+          { $set: updatedFields },
+          { new: true }
+        );
+
+        console.log("Updated user:", updatedUser);
+        res.redirect("/info");
       } catch (e) {
         console.log(e);
       }
     };
 
     getDocument();
-
   } else {
     res.redirect("/sign-in");
   }
 });
+
+
 // ***************************************************************************************
 
 //////////////////////////////nodemailer//////////////////////////////////
