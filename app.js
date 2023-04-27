@@ -158,7 +158,11 @@ app.get("/home", (req, res) => {
         if(foundUser===null)
         res.redirect("/register");
         else
-        res.render("home", { currUser: foundUser });
+        {
+          req.user.admin=foundUser.admin;
+          res.render("home", { currUser: foundUser });
+        }
+        
       } catch (e) {
         console.log(e);
       }
@@ -191,7 +195,14 @@ app.get("/info", (req, res) => {
     const getDocument = async () => {
       try {
         const foundUser = await user.findOne({ username: req.user.username });
-        res.render("info", { currUser: foundUser });
+        // var button=-1;
+        // // if(foundUser.username===req.user|| req.admin===1)
+        // console.log(req.user+" "+req.admin);
+        // if(req.admin===1)
+        // res.render("info", { currUser: foundUser,button:1});
+        // else
+        // res.render("info", { currUser: foundUser,button:0});
+        res.render("info", { currUser: foundUser,button:1});
       } catch (e) {
         console.log(e);
       }
@@ -345,6 +356,7 @@ app.post("/sign-in", (req, res) => {
   const newUser = new user({
     username: req.body.userName,
     password: req.body.password,
+    admin:0
   });
   console.log(newUser);
   req.login(newUser, function (err) {
@@ -365,7 +377,13 @@ app.post("/search", (req, res) => {
       const newCurrUser = await user.findOne({ username: searchUser });
       if (newCurrUser === null) res.redirect("/home");
       else {
-        res.render("info", { currUser: newCurrUser });
+        
+        // if(foundUser.username===req.user|| req.admin===1)
+        console.log(req.user.username+" "+req.user.admin);
+        if(req.user.admin===1||newCurrUser.username===req.user.username)
+        res.render("info", { currUser: newCurrUser,button:1});
+        else
+        res.render("info", { currUser: newCurrUser,button:0});
       }
     } catch (error) {
       console.log("Error in searching user - " + error);
