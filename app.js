@@ -10,12 +10,12 @@ const puppeteer = require("puppeteer");
 // const nodemailer = require('nodemailer');
 
 
-const DB="mongodb+srv://pratham:waliapratham@cluster0.eovgcbz.mongodb.net/studentData?retryWrites=true&w=majority";
+const DB = "mongodb+srv://pratham:waliapratham@cluster0.eovgcbz.mongodb.net/studentData?retryWrites=true&w=majority";
 
 
-mongoose.connect(DB).then(()=>{
+mongoose.connect(DB).then(() => {
   console.log("connection succesful");
-}).catch((err)=>{
+}).catch((err) => {
   console.log("NO Connection");
 });
 
@@ -52,7 +52,7 @@ const connect = async () => {
     console.log(err);
   }
 };
-connect();
+// connect();
 
 const basicInfoSchema = mongoose.Schema({
   name: String,
@@ -120,7 +120,7 @@ const hobbies = mongoose.model("hobbies", hobbiesInfoSchema);
 const userSchema = mongoose.Schema({
   username: String,
   password: String,
-  admin:Number,
+  admin: Number,
   basicInfo: basicInfoSchema,
   addressInfo: addressInfoSchema,
   skillsInfo: skillsInfoSchema,
@@ -165,14 +165,13 @@ app.get("/home", (req, res) => {
     const getDocument = async () => {
       try {
         const foundUser = await user.findOne({ username: req.user.username });
-        if(foundUser===null)
-        res.redirect("/register");
-        else
-        {
-          req.user.admin=foundUser.admin;
+        if (foundUser === null)
+          res.redirect("/register");
+        else {
+          req.user.admin = foundUser.admin;
           res.render("home", { currUser: foundUser });
         }
-        
+
       } catch (e) {
         console.log(e);
       }
@@ -182,21 +181,21 @@ app.get("/home", (req, res) => {
   } else {
     res.redirect("/sign-in");
   }
-  
+
 });
 app.get("/register", (req, res) => {
   res.sendFile(__dirname + "/Form_page/index.html");
 });
-app.get("/contact",(req,res)=>{
-    res.sendFile(__dirname+"/Contact_us/index.html");
+app.get("/contact", (req, res) => {
+  res.sendFile(__dirname + "/Contact_us/index.html");
 });
 
 app.get("/sign-in/security", (req, res) => {
   res.render("security_question");
 });
 
-app.get("/feedback",(req,res)=>{
-  res.sendFile(__dirname+"/feedback/feedback.html");
+app.get("/feedback", (req, res) => {
+  res.sendFile(__dirname + "/feedback/feedback.html");
 })
 
 app.get("/info", (req, res) => {
@@ -212,7 +211,7 @@ app.get("/info", (req, res) => {
         // res.render("info", { currUser: foundUser,button:1});
         // else
         // res.render("info", { currUser: foundUser,button:0});
-        res.render("info", { currUser: foundUser,button:1});
+        res.render("info", { currUser: foundUser, button: 1 });
       } catch (e) {
         console.log(e);
       }
@@ -323,7 +322,7 @@ app.post("/register", (req, res) => {
   const newUser = new user({
     username: req.body.userName,
     password: req.body.password,
-    admin:0,
+    admin: 0,
     basicInfo: newUserBasicInfo,
     addressInfo: newUserAddressInfo,
     skillsInfo: newUserSkillsInfo,
@@ -366,7 +365,7 @@ app.post("/sign-in", (req, res) => {
   const newUser = new user({
     username: req.body.userName,
     password: req.body.password,
-    admin:0
+    admin: 0
   });
   console.log(newUser);
   req.login(newUser, function (err) {
@@ -387,13 +386,13 @@ app.post("/search", (req, res) => {
       const newCurrUser = await user.findOne({ username: searchUser });
       if (newCurrUser === null) res.redirect("/home");
       else {
-        
+
         // if(foundUser.username===req.user|| req.admin===1)
-        console.log(req.user.username+" "+req.user.admin);
-        if(req.user.admin===1||newCurrUser.username===req.user.username)
-        res.render("info", { currUser: newCurrUser,button:1});
+        console.log(req.user.username + " " + req.user.admin);
+        if (req.user.admin === 1 || newCurrUser.username === req.user.username)
+          res.render("info", { currUser: newCurrUser, button: 1 });
         else
-        res.render("info", { currUser: newCurrUser,button:0});
+          res.render("info", { currUser: newCurrUser, button: 0 });
       }
     } catch (error) {
       console.log("Error in searching user - " + error);
