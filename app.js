@@ -9,6 +9,16 @@ const passportLocalMongoose = require("passport-local-mongoose");
 const puppeteer = require("puppeteer");
 // const nodemailer = require('nodemailer');
 
+
+const DB="mongodb+srv://pratham:waliapratham@cluster0.eovgcbz.mongodb.net/studentData?retryWrites=true&w=majority";
+
+
+mongoose.connect(DB).then(()=>{
+  console.log("connection succesful");
+}).catch((err)=>{
+  console.log("NO Connection");
+});
+
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(__dirname + "/public"));
