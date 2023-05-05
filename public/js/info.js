@@ -7,13 +7,13 @@ const uploadBtn = document.querySelector('#uploadButton');
 
 //if user hover on img div 
 
-imgDiv.addEventListener('mouseenter', function(){
+imgDiv.addEventListener('mouseenter', function () {
     uploadBtn.style.display = "block";
 });
 
 //if we hover out from img div
 
-imgDiv.addEventListener('mouseleave', function(){
+imgDiv.addEventListener('mouseleave', function () {
     uploadBtn.style.display = "none";
 });
 
@@ -21,7 +21,7 @@ imgDiv.addEventListener('mouseleave', function(){
 
 //when we choose a foto to upload
 
-file.addEventListener('change', function(){
+file.addEventListener('change', function () {
     //this refers to file
     const choosedFile = this.files[0];
 
@@ -29,7 +29,7 @@ file.addEventListener('change', function(){
 
         const reader = new FileReader(); //FileReader is a predefined function of JS
 
-        reader.addEventListener('load', function(){
+        reader.addEventListener('load', function () {
             img.setAttribute('src', reader.result);
         });
 
@@ -45,3 +45,13 @@ file.addEventListener('change', function(){
         //thanks for watching
     }
 });
+/*------------------------------------
+ ############### navbar ###############
+ -------------------------------------*/
+function openNav() {
+    document.getElementById("myNav").style.width = "100%";
+}
+
+function closeNav() {
+    document.getElementById("myNav").style.width = "0%";
+}
