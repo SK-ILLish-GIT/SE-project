@@ -244,7 +244,7 @@ app.get("/info", (req, res) => {
     const getDocument = async () => {
       try {
         const foundUser = await user.findOne({ username: req.user.username });
-        res.render("info", { currUser: foundUser, button: 1 });
+        res.render("info", { currUser: foundUser, button: 1 ,uploadPhoto:1});
       } catch (e) {
         console.log(e);
       }
@@ -464,9 +464,9 @@ app.post("/search", (req, res) => {
         // if(foundUser.username===req.user|| req.admin===1)
         // console.log(req.user.username + " " + req.user.admin);
         if (req.user.admin === 1 || newCurrUser.username === req.user.username)
-          res.render("info", { currUser: newCurrUser, button: 1 });
+          res.render("info", { currUser: newCurrUser, button: 1 , uploadPhoto:0});
         else
-          res.render("info", { currUser: newCurrUser, button: 0 });
+          res.render("info", { currUser: newCurrUser, button: 0 ,uploadPhoto:0});
       }
     } catch (error) {
       console.log("Error in searching user - " + error);

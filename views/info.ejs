@@ -95,11 +95,13 @@
         <div class="card-body">
           <div class="wrapper">
             <img src=<%=currUser.profilePic%> alt="" id="photo" class="user-profile">
-            <form action="/info/upload" method="POST" enctype="multipart/form-data">
-              <input type="file" id="photo_label" name="profileImage">
-              <label for="photo_label" id="uploadButton">Choose Photo</label>
-              <input type="submit" value="Upload" />
-            </form>
+            <%if(uploadPhoto===1){%>
+              <form action="/info/upload" method="POST" enctype="multipart/form-data">
+                <input type="file" id="photo_label" name="profileImage">
+                <label for="photo_label" id="uploadButton">Choose Photo</label>
+                <input type="submit" value="Upload" />
+              </form>
+            <%}%>
             <h3><%=currUser.basicInfo.name%> </h3>
             <p><%= currUser.username%></p>
             <!-- <form action="/change" method="post">
