@@ -195,22 +195,27 @@ app.get("/sign-in/security", (req, res) => {
 });
 
 app.get("/feedback", (req, res) => {
-  res.sendFile(__dirname + "/feedback/feedback.html");
+  if (req.user) {
+    const getDocument = async () => {
+      try {
+        const foundUser = await user.findOne({ username: req.user.username });
+        res.render("feedback", { currUser: foundUser });
+      } catch (e) {
+        console.log(e);
+      }
+    };
+
+    getDocument();
+  } else {
+    res.redirect("/sign-in");
+  }
 })
 
 app.get("/info", (req, res) => {
   if (req.user) {
-    // console.log(req.user);
     const getDocument = async () => {
       try {
         const foundUser = await user.findOne({ username: req.user.username });
-        // var button=-1;
-        // // if(foundUser.username===req.user|| req.admin===1)
-        // console.log(req.user+" "+req.admin);
-        // if(req.admin===1)
-        // res.render("info", { currUser: foundUser,button:1});
-        // else
-        // res.render("info", { currUser: foundUser,button:0});
         res.render("info", { currUser: foundUser, button: 1 });
       } catch (e) {
         console.log(e);
@@ -251,7 +256,7 @@ app.get("/change", (req, res) => {
 });
 
 app.post("/register", (req, res) => {
-  console.log(req.body);
+  // console.log(req.body);
   const newUserBasicInfo = new basicInfo({
     name: req.body.name,
     birthdate: req.body.birthdate,
@@ -367,7 +372,7 @@ app.post("/sign-in", (req, res) => {
     password: req.body.password,
     admin: 0
   });
-  console.log(newUser);
+  // console.log(newUser);
   req.login(newUser, function (err) {
     if (err) {
       res.redirect("/sign-in");
@@ -388,7 +393,7 @@ app.post("/search", (req, res) => {
       else {
 
         // if(foundUser.username===req.user|| req.admin===1)
-        console.log(req.user.username + " " + req.user.admin);
+        // console.log(req.user.username + " " + req.user.admin);
         if (req.user.admin === 1 || newCurrUser.username === req.user.username)
           res.render("info", { currUser: newCurrUser, button: 1 });
         else
