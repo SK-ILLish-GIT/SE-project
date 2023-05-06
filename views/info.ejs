@@ -89,14 +89,17 @@
       </div>
 
       <div class="img" style=" padding: 0%;   background-image: linear-gradient(150deg, rgba(63, 174, 255, .3)15%, rgba(63, 174, 255, .3)70%,
-         rgba(63, 175, 255, 0.755)94%), url(/images_Info/wallpaper.jpg);
-        height: 500px;background-size: cover;"></div>
+         rgba(63, 175, 255, 0.755)94%), url(<%=currUser.profilePic%>);
+        height: 500px;background-size:contain;background-position:center;background-repeat: no-repeat ;background-size: auto 100%;"></div>
       <div class="card social-prof">
         <div class="card-body">
           <div class="wrapper">
-            <img src="/images_Info/wallpaper.jpg" alt="" id="photo" class="user-profile">
-            <input type="file" id="photo_label">
-            <label for="photo_label" id="uploadButton">Choose Photo</label>
+            <img src=<%=currUser.profilePic%> alt="" id="photo" class="user-profile">
+            <form action="/info/upload" method="POST" enctype="multipart/form-data">
+              <input type="file" id="photo_label" name="profileImage">
+              <label for="photo_label" id="uploadButton">Choose Photo</label>
+              <input type="submit" value="Upload" />
+            </form>
             <h3><%=currUser.basicInfo.name%> </h3>
             <p><%= currUser.username%></p>
             <!-- <form action="/change" method="post">

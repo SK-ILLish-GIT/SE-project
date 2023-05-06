@@ -10,6 +10,33 @@ const puppeteer = require("puppeteer");
 // const nodemailer = require('nodemailer');
 
 
+
+//......................firebase....................................
+const multer = require("multer");
+const firebsae = require("firebase/app");
+const { getStorage, ref, uploadBytes, getDownloadURL } = require("firebase/storage");
+
+const firebaseConfig = {
+  apiKey: "AIzaSyA_Mh_zPbejmd4vG7BPj7LsaHEVsfQtVGE",
+  authDomain: "test-70418.firebaseapp.com",
+  projectId: "test-70418",
+  storageBucket: "test-70418.appspot.com",
+  messagingSenderId: "303464439198",
+  appId: "1:303464439198:web:0ff5df1ea7bbf07085ca8f",
+  // measurementId: "G-KZ6CM8D6VB"
+};
+
+firebsae.initializeApp(firebaseConfig);
+
+const storage = getStorage();
+
+const upload = multer({ storage: multer.memoryStorage() });
+
+//...........................................................
+
+
+
+
 const DB = "mongodb+srv://pratham:waliapratham@cluster0.eovgcbz.mongodb.net/studentData?retryWrites=true&w=majority";
 
 
@@ -121,6 +148,7 @@ const userSchema = mongoose.Schema({
   username: String,
   password: String,
   admin: Number,
+  profilePic:String,//....................Schema changed................................
   basicInfo: basicInfoSchema,
   addressInfo: addressInfoSchema,
   skillsInfo: skillsInfoSchema,
@@ -328,6 +356,7 @@ app.post("/register", (req, res) => {
     username: req.body.userName,
     password: req.body.password,
     admin: 0,
+    profilePic:"/images_Info/wallpaper.jpg",
     basicInfo: newUserBasicInfo,
     addressInfo: newUserAddressInfo,
     skillsInfo: newUserSkillsInfo,
@@ -348,6 +377,46 @@ app.post("/register", (req, res) => {
     }
   });
 });
+
+//......................post for upload image.........................................
+app.post("/info/upload", upload.single("profileImage"), (req, res) => {
+
+  if (req.user) {
+
+          const storageRef = ref(storage, `files/${req.user.username}`);
+
+          // uploadBytes(storageRef, req.file.buffer).then((snapshot) => {
+          //   getDownloadURL(storageRef).then((url)=>{
+          //     res.send('<img src='+url+' alt="Profile Image">');
+          //   });
+          //   console.log("file uplaoded");
+          // });
+          const changedp= async()=>{
+            try{
+              const snapshot= await uploadBytes(storageRef, req.file.buffer);
+              const url=await getDownloadURL(storageRef);
+              const foundUser = await user.findOneAndUpdate({ username: req.user.username }, {profilePic:url }, {
+                new: true
+              });
+              console.log("photo uploaded ");
+              res.redirect("/info");
+            }
+            catch(error){
+              console.log("Error in uploading file "+error);
+            }
+            
+          };
+          changedp();
+          // console.log(req.file);
+
+
+  } else {
+    res.redirect("/sign-in");
+  }
+});
+//..................................................................................
+
+
 app.post("/sign-in/security", (req, res) => {
   const userEmail = req.body.email,
     userAnswer = req.body.answer;
