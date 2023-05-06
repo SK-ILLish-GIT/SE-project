@@ -429,7 +429,18 @@ app.post("/change", (req, res) => {
     const getDocument = async () => {
       try {
         const foundUser = await user.findOne({ username: req.user.username });
-        console.log("Found user:", foundUser);
+        // console.log("Found user:", foundUser);
+
+        const newUserSports = [];
+        if (req.body.cricket != undefined) newUserSports.push("Cricket");
+        if (req.body.football != undefined) newUserSports.push("Football");
+        if (req.body.basketBall != undefined) newUserSports.push("Basket Ball");
+
+        const newUserOtherHobbies = [];
+        if (req.body.music != undefined) newUserOtherHobbies.push("Music");
+        if (req.body.arts != undefined) newUserOtherHobbies.push("Arts");
+
+        newUserOtherHobbies.push(req.body.otherHobbies);
 
         const updatedFields = {
           basicInfo: {
@@ -446,18 +457,18 @@ app.post("/change", (req, res) => {
             zipCode: req.body.zipCode || foundUser.addressInfo.zipCode,
           },
           skillsInfo: {
-            technicalSkills: req.body.technicalSkills || foundUser.skillsInfo.technicalSkills,
-            nontechnicalSkills: req.body.nontechnicalSkills || foundUser.skillsInfo.nontechnicalSkills,
+            technicalSkills: req.body.user_tech,
+            nontechnicalSkills: req.body.user_non_tech,  
           },
           projectInfo: {
-            name: req.body.name || foundUser.projectInfo.name,
-            domain: req.body.domain || foundUser.projectInfo.domain,
-            technologies: req.body.technologies || foundUser.projectInfo.technologies,
-            githubRepo: req.body.githubRepo || foundUser.projectInfo.githubRepo,
+            name: req.body.Pname,
+            domain: req.body.domain,
+            technologies: req.body.techonologies,
+            githubRepo: req.body.githubRepo,
           },
           hobbiesInfo: {
-            sports: req.body.sports || foundUser.hobbiesInfo.sports,
-            others: req.body.others || foundUser.hobbiesInfo.others,
+            sports: newUserSports,
+            others: newUserOtherHobbies,
           },
           educationInfo: {
             hsName: req.body.hsName || foundUser.educationInfo.hsName,
@@ -478,7 +489,7 @@ app.post("/change", (req, res) => {
           { new: true }
         );
 
-        console.log("Updated user:", updatedUser);
+        // console.log("Updated user:", updatedUser);
         res.redirect("/info");
       } catch (e) {
         console.log(e);

@@ -127,7 +127,8 @@
                                 <div class="col-6">
                                     <div class="social-info">
                                         <i class="fas fa-birthday-cake mr-2" style="color: #0dd324;"></i>
-                                        <span><%= currUser.basicInfo.birthdate%></span>
+                                        <span><%= currUser.basicInfo.birthdate.toLocaleDateString('en-US', { day: '2-digit', month: 'long', year: 'numeric' }) %></span>
+
           </div>
         </div>
         <div class="col-6">
@@ -236,7 +237,8 @@
                             <div class="row">
                                 <div class="col-lg-6">
                                     <h4><strong><%= currUser.educationInfo.cName %></strong></h4>
-            <p><%= currUser.educationInfo.cStart%> to <%= currUser.educationInfo.cEnd %></p>
+            <p><%= currUser.educationInfo.cStart.toLocaleDateString('en-US', { year: 'numeric', month: 'long' }) %> to 
+              <%= currUser.educationInfo.cEnd.toLocaleDateString('en-US', { year: 'numeric', month: 'long' }) %> </p>
 
           </div>
           <div class="col-lg-6">
@@ -245,7 +247,8 @@
           </div>
           <div class="col-lg-6">
             <h4><strong><%= currUser.educationInfo.hsName %></strong></h4>
-            <p><%= currUser.educationInfo.hsStart %> to <%= currUser.educationInfo.hsEnd %> </p>
+            <p><%= currUser.educationInfo.hsStart.toLocaleDateString('en-US', { year: 'numeric', month: 'long' }) %> to 
+              <%= currUser.educationInfo.hsEnd.toLocaleDateString('en-US', { year: 'numeric', month: 'long' }) %> </p>
           </div>
           <div class="col-lg-6">
             <h4><strong>Percentage: <%= currUser.educationInfo.hsPercentage %>% </strong></h4>
