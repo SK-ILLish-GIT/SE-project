@@ -1,36 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Feedback Form</title>
-    <link rel="stylesheet" href="/css_Form_page/style.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Feedback Form</title>
+  <link rel="stylesheet" href="/css_Form_page/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
+
 <body>
-    
-    <div class="sec_regfeedback main_c" >
-        <div class="row">
-          <div class="center">
-            <div class="frm">
-                <form action="https://formspree.io/f/xlekobwy" method="POST">
-                <div class="reg_cl">
-                  <h3 class="reg">FeedBack Form</h3>
-                </div>
-                <div>
-                  <div id="section1">
-                    <input class="f_e f_input" type="text" name="FeedName" placeholder= '<%= currUser.basicInfo.name%>' required disabled>
-                    <input class="f_e f_input" type="email" name="FeedEmail" placeholder='<%= currUser.basicInfo.email%>' required disabled>
-                    <textarea class="f_e f_input" name="FeedMessage" placeholder="Write your message here" required style="height:6rem"></textarea>
-                    <button class="btnp btn--white" type="submit" style="margin-left: -0.35vh;">  Send</button>
-                    
-                  </div>
-                </div>
+  <nav class="navbar">
+    <div id="myNav" class="overlay">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      <div class="overlay-content">
+        <a class="overlay-content_left_rotation" href="/home">Home</a>
+        <a class="overlay-content_right_rotation" href="/">Login Or Register</a>
+        <a class="overlay-content_left_rotation" href="#section-about" onclick="closeNav()">Search Student</a>
+        <a class="overlay-content_left_rotation" href="/contact">Contact Us</a>
+        <a class="overlay-content_right_rotation" href="/feedback">Feedback</a>
+        <a class="overlay-content_left_rotation" href="/logout" role="button">Logout</a>
+      </div>
+      <div class="social_links">
+        <a href="https://www.instagram.com/rhythm_1027/" class="instagram" target="_blank"><i class="fa-brands fa-instagram fa-lg" style="color: #d1109d;"></i></a>
+        <a href="https://www.linkedin.com/in/mohd-zia-92292a211/" class="linkedin" target="_blank"><i class="fa-brands fa-linkedin fa-lg" style="color: #286cff;"></i></a>
+        <a href="#" class="facebook" target="_blank"><i class="fa-brands fa-facebook fa-lg" style="color: #3b5998;"></i></a>
+        <a href="https://twitter.com/MohdZiaAns93" class="twitter" target="_blank"><i class="fa-brands fa-twitter fa-lg" style="color: #00acee;"></i></a>
+        <a href="https://github.com/SK-ILLish-GIT/" class="github" target="_blank"><i class="fa-brands fa-github fa-lg" style="color: #ff0000;"></i></a>
+      </div>
+    </div>
+    <div class="header__logo-box">
+      <!-- <img src="/img/logo-green-1x.png" alt="Logo" class="header__logo"> -->
+      <img src="/img/logo-green-1x.png" alt="Logo" class="header__logo">
+    </div>
+    <div class="header__profile__container">
+      <a href="/info"><img src="https://mdbcdn.b-cdn.net/img/new/avatars/1.webp" class="header__profile__img" style="width: 50px;" alt="Avatar" /></a>
+    </div>
+    <span style="font-size:45px;cursor:pointer" onclick="openNav()">&#9776;</span>
+  </nav>
+  <div class="sec_regfeedback main_c">
+    <div class="row">
+      <div class="center">
+        <div class="frm">
+          <form action="https://formspree.io/f/xlekobwy" method="POST">
+            <div class="reg_cl">
+              <h3 class="reg">FeedBack Form</h3>
+            </div>
+            <div>
+              <div id="section1">
+                <input class="f_e f_input" type="text" name="FeedName" placeholder='<%= currUser.basicInfo.name%>' required disabled>
+                <input class="f_e f_input" type="email" name="FeedEmail" placeholder='<%= currUser.basicInfo.email%>' required disabled>
+                <textarea class="f_e f_input" name="FeedMessage" placeholder="Write your message here" required style="height:6rem"></textarea>
+                <button class="btnp btn--white" type="submit" style="margin-left: -0.35vh;"> Send</button>
+
               </div>
             </div>
-          </div>
         </div>
+      </div>
+    </div>
+  </div>
 
 </body>
-</html>
+<script src="/js/feedback.js"></script>
 
+</html>
