@@ -26,7 +26,7 @@
                         type="text"
                         class="f_input"
                         id="u_name"
-                        value=<%=currUser.basicInfo.name%>
+                        value="<%=currUser.basicInfo.name%>"
                         name="name"
                       />
                       <!-- <label for="u_name" class="f_label">Name</label> -->
@@ -35,7 +35,7 @@
                     <div class="f_e">
                       <!-- <label for="u_name" class="f_label">Name</label> -->
                       <input
-                        value=<%= currUser.basicInfo.birthdate%>
+                        value="<%= currUser.basicInfo.birthdate%>"                    
                         type="text"
                         onfocus="(this.type = 'date')"
                         class="f_input"
@@ -49,7 +49,7 @@
                         type="email"
                         class="f_input"
                         id="u_email"
-                        value=<%= currUser.basicInfo.email%>
+                        value="<%= currUser.basicInfo.email%>"
                         name="email"
                       />
                     </div>
@@ -59,7 +59,7 @@
                         type="text"
                         class="f_input"
                         id="u_phone"
-                        value=<%= currUser.basicInfo.phoneNo%>
+                        value="<%= currUser.basicInfo.phoneNo%>"
                         name="phoneNo"
                       />
                     </div>
@@ -97,7 +97,7 @@
                         type="text"
                         class="f_input2 f_r"
                         id="u_add"
-                        value=<%= currUser.addressInfo.address%>
+                        value="<%= currUser.addressInfo.address%>"
                         name="address"
                       />
                     </div>
@@ -106,8 +106,8 @@
                         type="text"
                         class="f_input2 f_r"
                         id="u_city"
-                        value=<%= currUser.addressInfo.city%>
-                        name="city"
+                        value="<%= currUser.addressInfo.city%>"
+                         name="city"
                       />
                     </div>
                     <div class="f_e">
@@ -115,7 +115,7 @@
                         type="text"
                         class="f_input2 f_r"
                         id="u_state"
-                        value=<%= currUser.addressInfo.state%>
+                        value="<%= currUser.addressInfo.state%>"
                         name="state"
                       />
                     </div>
@@ -124,7 +124,7 @@
                         type="text"
                         class="f_input2 f_r"
                         id="u_zip"
-                        value=<%= currUser.addressInfo.zipCode%>
+                        value="<%= currUser.addressInfo.zipCode%>"
                         name="zipCode"
                       />
                     </div>
@@ -151,7 +151,7 @@
                         type="text"
                         class="f_input"
                         id="u_s1"
-                        value=<%= currUser.skillsInfo.technicalSkills[0]%>
+                        value="<%= currUser.skillsInfo.technicalSkills[0]%>"
                         name="user_tech"
                       />
                     </div>
@@ -162,7 +162,7 @@
                         type="text"
                         class="f_input"
                         id="u_s2"
-                        value=<%= currUser.skillsInfo.technicalSkills[1]%>
+                        value="<%= currUser.skillsInfo.technicalSkills[1]%>"
                         name="user_tech"
                       />
                     </div>
@@ -172,7 +172,7 @@
                         type="text"
                         class="f_input"
                         id="u_s3"
-                        value=<%= currUser.skillsInfo.technicalSkills[2]%>
+                        value="<%= currUser.skillsInfo.technicalSkills[2]%>"
                         name="user_tech"
                       />
                     </div>
@@ -182,7 +182,7 @@
                         type="text"
                         class="f_input"
                         id="u_s4"
-                        value=<%= currUser.skillsInfo.technicalSkills[3]%>
+                        value="<%= currUser.skillsInfo.technicalSkills[3]%>"
                         name="user_tech"
                       />
                     </div>
@@ -207,7 +207,7 @@
                       <input
                         type="text"
                         class="f_input2 f_r"
-                        value=<%= currUser.skillsInfo.nontechnicalSkills[0]%>
+                        value="<%= currUser.skillsInfo.nontechnicalSkills[0]%>"
                         name="user_non_tech"
                       />
                     </div>
@@ -215,7 +215,7 @@
                       <input
                         type="text"
                         class="f_input2 f_r"
-                        value=<%= currUser.skillsInfo.nontechnicalSkills[1]%>
+                        value="<%= currUser.skillsInfo.nontechnicalSkills[1]%>"
                         name="user_non_tech"
                       />
                     </div>
@@ -223,7 +223,7 @@
                       <input
                         type="text"
                         class="f_input2 f_r"
-                        value=<%= currUser.skillsInfo.nontechnicalSkills[2]%>
+                        value="<%= currUser.skillsInfo.nontechnicalSkills[2]%>"
                         name="user_non_tech"
                       />
                     </div>
@@ -231,7 +231,7 @@
                       <input
                         type="text"
                         class="f_input2 f_r"
-                        value=<%= currUser.skillsInfo.nontechnicalSkills[3]%>
+                        value="<%= currUser.skillsInfo.nontechnicalSkills[3]%>"
                         name="user_non_tech"
                       />
                     </div>
@@ -276,13 +276,13 @@
                         <input
                           type="text"
                           class="f_input card_in2"
-                          value=<%= currUser.educationInfo.hsName%>
-                          name="hsName"
+                          value="<%= currUser.educationInfo.hsName%>"
+                         name="hsName"
                         />
                       </div>
                       <div class="f_e">
                         <input
-                        value=<%= currUser.educationInfo.Start%>
+                        value="<%= currUser.educationInfo.Start%>"
                         type="text"
                         onfocus="(this.type = 'month')"
                           class="f_input card_in2edu "
@@ -291,7 +291,7 @@
                       </div>
                       <div class="f_e">
                         <input
-                        value=<%= currUser.educationInfo.hsEnd%>
+                        value="<%= currUser.educationInfo.hsEnd%>"
                         type="text"
                         onfocus="(this.type = 'month')"
                           class="f_input card_in2edu "
@@ -302,14 +302,14 @@
                         <input
                           type="text"
                           class="f_input card_in2"
-                          value=<%= currUser.educationInfo.hsPercentage%>
+                          value="<%= currUser.educationInfo.hsPercentage%>"
                           name="hsPercentage"
                         />
                       </div>
                       <!-- <div class="card__price-box">
                       <p class="card__price-only">Only</p>
-                      <p class="card__price-value">$297</p>
-                    </div> -->
+                      <p class="card__price-value"">$297</p>
+                    </div> --">
                       <!-- <a href="#popup" class="btnp btn--white">Enter</a> -->
                     <!-- </div> -->
                   </div>
@@ -346,13 +346,13 @@
                           <input
                             type="text"
                             class="f_input card_in2"
-                            value=<%= currUser.educationInfo.cName%>
+                            value="<%= currUser.educationInfo.cName%>"
                             name="cName"
                           />
                         </div>
                         <div class="f_e">
                           <input
-                          value=<%= currUser.educationInfo.cStart%>
+                          value="<%= currUser.educationInfo.cStart%>"
                           type="text"
                           onfocus="(this.type = 'month')"
                             class="f_input card_in2edu "
@@ -361,7 +361,7 @@
                         </div>
                         <div class="f_e">
                           <input
-                          value=<%= currUser.educationInfo.cEnd%>
+                          value="<%= currUser.educationInfo.cEnd%>"
                           type="text"
                           onfocus="(this.type = 'month')"
                             class="f_input card_in2edu "
@@ -372,7 +372,7 @@
                           <input
                             type="text"
                             class="f_input card_in2"
-                            value=<%= currUser.educationInfo.cBranch%>
+                            value="<%= currUser.educationInfo.cBranch%>"
                             name="cBranch"
                           />
                         </div>
@@ -380,14 +380,14 @@
                           <input
                             type="text"
                             class="f_input card_in2"
-                            value=<%= currUser.educationInfo.cCg%>
+                            value="<%= currUser.educationInfo.cCg%>"
                             name="cCg"
                           />
                         </div>
                         <!-- <div class="card__price-box">
                         <p class="card__price-only">Only</p>
-                        <p class="card__price-value">$297</p>
-                      </div> -->
+                        <p class="card__price-value"">$297</p>
+                      </div> "-->
                         <!-- <a href="#popup" class="btnp btn--white">Enter</a> -->
                       <!-- </div> -->
                     </div>
@@ -400,72 +400,6 @@
           <!--  -->
         </div>
         <!-- end -->
-
-
-        <div class="sec_reg2">
-          <div class="row2">
-            <div class="center2">
-              <div class="frm2">
-                <div class="reg_cl2">
-                  <h3 class="reg2">Login Info</h3>
-                </div>
-                <div>
-                  <div id="section4">
-                    <div class="f_e">
-                      <input
-                        type="text"
-                        class="f_input2 f_r"
-                        id="u_username"
-                        placeholder="Username"
-                        name="userName"
-                      />
-                    </div>
-                    <div class="f_e">
-                      <input
-                        type="password"
-                        class="f_input2 f_r"
-                        id="u_pass"
-                        placeholder="Password"
-                        name="password"
-                      />
-                    </div>
-                    <div class="f_e">
-                      <input
-                        type="password"
-                        class="f_input2 f_r"
-                        id="u_cpass"
-                        placeholder="Confirm Password"
-                      />
-                      <div class="f_e">
-                        <select
-                          class="f_r f_input2 secq"
-                          name="securityQuestion"
-                        >
-                          <option value="" disabled selected hidden>
-                            Security Question
-                          </option>
-                          <option>Name of your Dog</option>
-                          <option>Name of your first school</option>
-                          <option>Favourite food</option>
-                        </select>
-                        />
-                      </div>
-                      <div class="f_e">
-                        <input
-                          type="text"
-                          class="f_input2 f_r"
-                          id="u_ans"
-                          placeholder="Answer"
-                          name="answer"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
 
         <div class="sec_reg3">
           <div class="row">
@@ -500,7 +434,7 @@
                           class="form__radio-input"
                           id="Football"
                           name="football"
-                          <% if (currUser.hobbiesInfo.sports.includes('football')) {%>
+                          <% if (currUser.hobbiesInfo.sports.includes('Football')) {%>
                             checked 
                            <% } %>
                         />
@@ -516,7 +450,7 @@
                           class="form__radio-input"
                           id="BasketBall"
                           name="basketBall"
-                          <% if (currUser.hobbiesInfo.sports.includes('Basket ball')) {%>
+                          <% if (currUser.hobbiesInfo.sports.includes('Basket Ball')) {%>
                             checked 
                            <% } %>
                         />
@@ -537,7 +471,7 @@
                         class="form__radio-input"
                         id="small"
                         name="music"
-                        <% if (currUser.hobbiesInfo.sports.includes('music')) {%>
+                        <% if (currUser.hobbiesInfo.sports.includes('Music')) {%>
                           checked 
                          <% } %>
                       />
@@ -552,7 +486,7 @@
                         class="form__radio-input"
                         id="large"
                         name="arts"
-                        <% if (currUser.hobbiesInfo.sports.includes('arts')) {%>
+                        <% if (currUser.hobbiesInfo.sports.includes('Arts')) {%>
                           checked 
                          <% } %>
                       />
@@ -567,7 +501,7 @@
                       class="f_input"
                       style="margin-top: 5%"
                       name="otherHobbies"
-                      value=<%=currUser.hobbiesInfo.others%>
+                      value="<%=currUser.hobbiesInfo.others%>"
                     />
                   </div>
                 </div>
@@ -607,13 +541,13 @@
                         <input
                           type="text"
                           class="f_input card_in2"
-                          value=<%=currUser.projectInfo.name[0]%>
+                          value="<%=currUser.projectInfo.name[0]%>"
                           name="Pname"
                         />
                       </div>
                       <select class="card_in f_input" name="domain">
-                        <option value="" disabled selected hidden>
-                          Domain
+                        <option value=""" disabled selected hidden>
+                          <%=currUser.projectInfo.domain[0]%>
                         </option>
                         <option>WebD</option>
                         <option>AppD</option>
@@ -631,7 +565,7 @@
                         <input
                           type="text"
                           class="f_input card_in2"
-                          placeholder="Technologies"
+                          value="<%=currUser.projectInfo.technologies[0]%>"
                           name="techonologies"
                         />
                       </div>
@@ -639,14 +573,14 @@
                         <input
                           type="text"
                           class="f_input card_in2"
-                          placeholder="Github Repo"
+                          value="<%=currUser.projectInfo.githubRepo[0]%>"
                           name="githubRepo"
                         />
                       </div>
                       <!-- <div class="card__price-box">
                       <p class="card__price-only">Only</p>
-                      <p class="card__price-value">$297</p>
-                    </div> -->
+                      <p class="card__price-value"">$297</p>
+                    </div> --">
                       <!-- <a href="#popup" class="btnp btn--white">Enter</a> -->
                     </div>
                   </div>
@@ -682,13 +616,13 @@
                         <input
                           type="text"
                           class="f_input card_in2"
-                          value=<%=currUser.projectInfo.name[1]%>
+                          value="<%=currUser.projectInfo.name[1]%>"
                           name="Pname"
                         />
                       </div>
                       <select class="card_in f_input" name="domain">
                         <option value="" disabled selected hidden>
-                          Domain
+                          <%=currUser.projectInfo.domain[1]%>
                         </option>
                         <option>WebD</option>
                         <option>AppD</option>
@@ -706,7 +640,7 @@
                         <input
                           type="text"
                           class="f_input card_in2"
-                          placeholder="Technologies"
+                          value="<%=currUser.projectInfo.technologies[1]%>"
                           name="techonologies"
                         />
                       </div>
@@ -714,14 +648,14 @@
                         <input
                           type="text"
                           class="f_input card_in2"
-                          placeholder="Github Repo"
+                          value="<%=currUser.projectInfo.githubRepo[1]%>"
                           name="githubRepo"
                         />
                       </div>
                       <!-- <div class="card__price-box">
                         <p class="card__price-only">Only</p>
-                              <p class="card__price-value">$297</p>
-                            </div> -->
+                              <p class="card__price-value"">$297</p>
+                            <"/div> -->
                       <!-- <a href="#popup" class="btnp btn--white">Enter</a> -->
                     </div>
                   </div>
@@ -755,13 +689,13 @@
                         <input
                           type="text"
                           class="f_input card_in2"
-                          value=<%=currUser.projectInfo.name[2]%>
+                          value="<%=currUser.projectInfo.name[2]%>"
                           name="Pname"
                         />
                       </div>
                       <select class="card_in f_input" name="domain">
                         <option value="" disabled selected hidden>
-                          Domain
+                          <%=currUser.projectInfo.domain[2]%>
                         </option>
                         <option>WebD</option>
                         <option>AppD</option>
@@ -779,7 +713,7 @@
                         <input
                           type="text"
                           class="f_input card_in2"
-                          placeholder="Technologies"
+                          value="<%=currUser.projectInfo.technologies[2]%>"
                           name="techonologies"
                         />
                       </div>
@@ -787,14 +721,14 @@
                         <input
                           type="text"
                           class="f_input card_in2"
-                          placeholder="Github Repo"
+                          value="<%=currUser.projectInfo.githubRepo[2]%>"
                           name="githubRepo"
                         />
                       </div>
                       <!-- <div class="card__price-box">
                         <p class="card__price-only">Only</p>
-                        <p class="card__price-value">$297</p>
-                      </div> -->
+                        <p class="card__price-value"">$297</p>
+                      </div> "-->
                       <!-- <a href="#popup" class="btnp btn--white">Enter</a> -->
                     </div>
                   </div>

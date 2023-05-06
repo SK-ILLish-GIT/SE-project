@@ -407,6 +407,7 @@ app.post("/search", (req, res) => {
 });
 
 // *********************************************update************************************
+// *********************************************update************************************
 app.post("/info", (req, res) => {
   if (req.user) {
     const getDocument = async () => {
@@ -433,21 +434,46 @@ app.post("/change", (req, res) => {
         const updatedFields = {
           basicInfo: {
             name: req.body.name || foundUser.basicInfo.name,
+            birthdate: req.body.birthdate || foundUser.basicInfo.birthdate,
             email: req.body.email || foundUser.basicInfo.email,
-            phone: req.body.phone || foundUser.basicInfo.phone
+            phoneNo: req.body.phoneNo || foundUser.basicInfo.phoneNo,
+            gender: req.body.gender || foundUser.basicInfo.gender,
           },
-          address: {
-            street: req.body.street || foundUser.address.street,
-            city: req.body.city || foundUser.address.city,
-            state: req.body.state || foundUser.address.state,
-            country: req.body.country || foundUser.address.country,
-            zipcode: req.body.zipcode || foundUser.address.zipcode
+          addressInfo: {
+            address: req.body.address || foundUser.addressInfo.address,
+            city: req.body.city || foundUser.addressInfo.city,
+            state: req.body.state || foundUser.addressInfo.state,
+            zipCode: req.body.zipCode || foundUser.addressInfo.zipCode,
+          },
+          skillsInfo: {
+            technicalSkills: req.body.technicalSkills || foundUser.skillsInfo.technicalSkills,
+            nontechnicalSkills: req.body.nontechnicalSkills || foundUser.skillsInfo.nontechnicalSkills,
+          },
+          projectInfo: {
+            name: req.body.name || foundUser.projectInfo.name,
+            domain: req.body.domain || foundUser.projectInfo.domain,
+            technologies: req.body.technologies || foundUser.projectInfo.technologies,
+            githubRepo: req.body.githubRepo || foundUser.projectInfo.githubRepo,
+          },
+          hobbiesInfo: {
+            sports: req.body.sports || foundUser.hobbiesInfo.sports,
+            others: req.body.others || foundUser.hobbiesInfo.others,
+          },
+          educationInfo: {
+            hsName: req.body.hsName || foundUser.educationInfo.hsName,
+            hsStart: req.body.hsStart || foundUser.educationInfo.hsStart,
+            hsEnd: req.body.hsEnd || foundUser.educationInfo.hsEnd,
+            hsPercentage: req.body.hsPercentage || foundUser.educationInfo.hsPercentage,
+            cName: req.body.cName || foundUser.educationInfo.cName,
+            cStart: req.body.cStart || foundUser.educationInfo.cStart,
+            cEnd: req.body.cEnd || foundUser.educationInfo.cEnd,
+            cCg: req.body.cCg || foundUser.educationInfo.cCg,
+            cBranch: req.body.cBranch || foundUser.educationInfo.cBranch,
           }
-          // Add other fields to update here
         };
 
-        const updatedUser = await user.findByIdAndUpdate(
-          foundUser._id,
+        const updatedUser = await user.findOneAndUpdate(
+          { username: req.user.username },
           { $set: updatedFields },
           { new: true }
         );
@@ -464,6 +490,7 @@ app.post("/change", (req, res) => {
     res.redirect("/sign-in");
   }
 });
+
 
 
 // ***************************************************************************************
