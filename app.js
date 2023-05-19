@@ -527,7 +527,7 @@ app.post("/info", (req, res) => {
   if (req.user) {
     const getDocument = async () => {
       try {
-        const foundUser = await user.findOne({ username: req.user.username });
+        const foundUser = await user.findOne({ username: req.body.username });
         res.render("change", { currUser: foundUser });
       } catch (e) {
         console.log(e);
@@ -540,11 +540,12 @@ app.post("/info", (req, res) => {
 });
 
 app.post("/change", (req, res) => {
+
   if (req.user) {
     const getDocument = async () => {
       try {
-        const foundUser = await user.findOne({ username: req.user.username });
-        // console.log("Found user:", foundUser);
+        const foundUser = await user.findOne({ username: req.body.userName });
+        console.log("Found user:", foundUser);
 
         const newUserSports = [];
         if (req.body.cricket != undefined) newUserSports.push("Cricket");

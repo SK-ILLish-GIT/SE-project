@@ -128,11 +128,13 @@
               <div class="col">
                 <%}%>
             <% if(button===1){%>
-                <button class="editt-button">
-                  <a href="/change">
-                    <i class="fas fa-edit"></i> Edit Profile
-                  </a>
+              <form action="/info" method="POST">
+                <!-- Other input fields -->
+                <input type="hidden" name="username" value="<%= currUser.username %>">
+                <button class="editt-button" type="submit">
+                  <i class="fas fa-edit"></i> Edit Profile
                 </button>
+              </form>
                 <%}%>
               </div>
             </div>
