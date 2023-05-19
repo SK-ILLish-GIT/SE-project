@@ -10,9 +10,7 @@
   <body>
     <div class="heading heading-secondary">Update Details</div>
 
-    <div class="f_e" display="none">
-      <input type="text" class="f_input2 f_r" id="u_username" placeholder="Username" name="userName" required />
-    </div>
+
 
     <div class="main_c">
       <div class="sec_reg">
@@ -20,6 +18,9 @@
           <div class="center">
             <div class="frm">
               <form action="/change" method="post">
+                <div class="f_e" display="none">
+                  <input type="text" class="f_input2 f_r" id="u_username" placeholder="Username" name="userName" value=<%=currUser.username%> required />
+                </div>
                 <div class="reg_cl">
                   <h3 class="reg">basic Info</h3>
                 </div>

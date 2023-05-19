@@ -509,7 +509,10 @@ app.post("/search", (req, res) => {
 
         // if(foundUser.username===req.user|| req.admin===1)
         // console.log(req.user.username + " " + req.user.admin);
-        if (req.user.admin === 1 || newCurrUser.username === req.user.username)
+        console.log(newCurrUser.username);
+        if(newCurrUser.username === req.user.username)
+          res.render("info", { currUser: newCurrUser, button: 1 , uploadPhoto:1});
+        else if (req.user.admin === 1 )
           res.render("info", { currUser: newCurrUser, button: 1 , uploadPhoto:0});
         else
           res.render("info", { currUser: newCurrUser, button: 0 ,uploadPhoto:0});
@@ -523,11 +526,12 @@ app.post("/search", (req, res) => {
 
 // *********************************************update************************************
 // *********************************************update************************************
-app.post("/info", (req, res) => {
+app.post("/info/change", (req, res) => {
   if (req.user) {
     const getDocument = async () => {
       try {
         const foundUser = await user.findOne({ username: req.body.username });
+        console.log(req.body.username);
         res.render("change", { currUser: foundUser });
       } catch (e) {
         console.log(e);
@@ -544,8 +548,9 @@ app.post("/change", (req, res) => {
   if (req.user) {
     const getDocument = async () => {
       try {
+        console.log(req.body);
         const foundUser = await user.findOne({ username: req.body.userName });
-        console.log("Found user:", foundUser);
+        console.log("Found user:", foundUser+" userName from post req="+req.body.userName);
 
         const newUserSports = [];
         if (req.body.cricket != undefined) newUserSports.push("Cricket");
@@ -600,19 +605,36 @@ app.post("/change", (req, res) => {
         };
 
         const updatedUser = await user.findOneAndUpdate(
-          { username: req.user.username },
+          { username: foundUser.username },
           { $set: updatedFields },
           { new: true }
         );
 
-        // console.log("Updated user:", updatedUser);
-        res.redirect("/info");
+        if (foundUser.username === req.user.username)
+          res.render("info", { currUser: updatedUser, button: 1, uploadPhoto: 1 });
+        else if (req.user.admin === 1)
+          res.render("info", { currUser: updatedUser, button: 1, uploadPhoto: 0 });
+        else
+          res.render("info", { currUser: updatedUser, button: 0, uploadPhoto: 0 });
+        
       } catch (e) {
         console.log(e);
       }
     };
 
-    getDocument();
+    getDocument()
+    // .then((updatedUser) => {
+    //   if(foundUser.username === req.user.username)
+    //       res.render("info", { currUser: foundUser, button: 1 , uploadPhoto:1});
+    //     else if (req.user.admin === 1)
+    //       res.render("info", { currUser: foundUser, button: 1 , uploadPhoto:0});
+    //     else
+    //       res.render("info", { currUser: foundUser, button: 0 ,uploadPhoto:0});
+    //     // res.redirect("/home");
+    // })
+    .catch((error) => {
+      res.status(500).send("Internal Server Error");
+    });
   } else {
     res.redirect("/sign-in");
   }
@@ -621,6 +643,10 @@ app.post("/change", (req, res) => {
 
 
 // ***************************************************************************************
+
+//************************************************************DELETE**********************
+
+
 
 //////////////////////////////nodemailer//////////////////////////////////
 
