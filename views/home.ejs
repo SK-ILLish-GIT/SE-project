@@ -37,7 +37,7 @@
         <img src="/img/logo-green-1x.png" alt="Logo" class="header__logo">
       </div>
       <div class="header__profile__container">
-        <a href="/info"><img src="https://mdbcdn.b-cdn.net/img/new/avatars/1.webp" class="header__profile__img" style="width: 50px;" alt="Avatar" /></a>
+        <a href="/info"><img src=<%=currUser.profilePic%> class="header__profile__img" style="width: 50px;" alt="Avatar" /></a>
       </div>
       <span style="font-size:45px;cursor:pointer" onclick="openNav()">&#9776;</span>
     </nav>
@@ -241,7 +241,7 @@
         </div>
         <div class="col-1-of-4-features">
           <button class="btn btn-square btn-update btn--animated ">
-            <a href="/change">
+            <a href="#section-about">
               UPDATE
             </a>
           </button>
@@ -256,7 +256,7 @@
 
         <div class="col-1-of-4-features">
           <button class="btn btn-square btn-delete btn--animated">
-            <a>
+            <a href="#section-about">
               DELETE
             </a>
           </button>
