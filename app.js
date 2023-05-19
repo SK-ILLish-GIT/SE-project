@@ -215,7 +215,20 @@ app.get("/register", (req, res) => {
   res.sendFile(__dirname + "/Form_page/index.html");
 });
 app.get("/contact", (req, res) => {
-  res.sendFile(__dirname + "/Contact_us/index.html");
+ // res.sendFile(__dirname + "/Contact_us/index.html");
+  if (req.user) {
+    const getDocument = async () => {
+      try {
+        const foundUser = await user.findOne({ username: req.user.username });
+        res.render("Contact_us", { currUser: foundUser });
+      } catch (e) {
+        console.log(e);
+      }
+    };
+    getDocument();
+  } else {
+    res.redirect("/sign-in");
+  }
 });
 
 app.get("/sign-in/forgot-password", (req, res) => {
