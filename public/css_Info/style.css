@@ -757,3 +757,13 @@ ul.friend-list .right p {
     transform: translate(0);
   }
 }
+.submit-wrapper input[type="submit"] {
+  width: 150px;
+  background-color: var(--color-primary);
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
