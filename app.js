@@ -7,7 +7,7 @@ const session = require("express-session");
 const passport = require("passport");
 const passportLocalMongoose = require("passport-local-mongoose");
 const puppeteer = require("puppeteer");
-// const nodemailer = require('nodemailer');
+const nodemailer = require('nodemailer');
 
 
 
@@ -218,8 +218,8 @@ app.get("/contact", (req, res) => {
   res.sendFile(__dirname + "/Contact_us/index.html");
 });
 
-app.get("/sign-in/security", (req, res) => {
-  res.render("security_question");
+app.get("/sign-in/forgot-password", (req, res) => {
+  res.render("forgot_password");
 });
 
 app.get("/feedback", (req, res) => {
@@ -417,16 +417,40 @@ app.post("/info/upload", upload.single("profileImage"), (req, res) => {
 //..................................................................................
 
 
-app.post("/sign-in/security", (req, res) => {
-  const userEmail = req.body.email,
-    userAnswer = req.body.answer;
+app.post("/sign-in/forgot-password", (req, res) => {
+  const currUsername = req.body.username;
+
   const findUser = async () => {
     try {
-      const user = await Users.findOne({ email: userEmail });
-      if (user === null) res.redirect("/register");
+      const searchedUser = await user.findOne({ username: currUsername});
+      if (searchedUser === null) res.redirect("/sign-in");
       else {
-        if (user.answer === userAnswer) res.redirect("/home");
-        else res.send("<h1>Wrong answer</h1>");
+        
+        let transporter=nodemailer.createTransport({
+          service: "gmail",
+          auth: {
+              user: 'edenbergson1@gmail.com',
+              pass: 'aupjktncewkphuov',
+          },
+      })
+      
+      let mailOptions= {
+          from:'"Debug Thugs" <edenbergson1@gmail.com>',
+          to:searchedUser.basicInfo.email,
+          subject:'This is a mail since you chose forgot password',
+          text:'Hello user this is your password for username '+searchedUser.username+' :'+searchedUser.password,
+          html:'<h3>Hello user this is your password for username '+searchedUser.username+' :'+searchedUser.password+'</h3>',
+      
+      }
+
+          transporter.sendMail(mailOptions,(err,info)=>{
+            if(err){
+                console.log(err);
+            }else{
+                res.send("Email Sent!");
+            }
+        })
+
       }
     } catch (error) {
       console.log("Error in finding user - " + error);
@@ -434,6 +458,7 @@ app.post("/sign-in/security", (req, res) => {
   };
   findUser();
 });
+
 
 app.post("/sign-in", (req, res) => {
   const newUser = new user({
@@ -447,12 +472,33 @@ app.post("/sign-in", (req, res) => {
       res.redirect("/sign-in");
       console.log(err);
     } else {
-      passport.authenticate("local")(req, res, function () {
-        res.redirect("/home");
-      });
+      console.log(newUser);
+      // passport.authenticate("local")(req, res, function () {
+      // });
+      const findUser = async () => {
+        try {
+          const newCurrUser = await user.findOne({ username: newUser.username });
+          if (newCurrUser === null) res.redirect("/register");
+          else {
+            if (newUser.password==newCurrUser.password)
+              res.redirect("/home");
+            else
+
+              res.send("<h1>Wrong password</h1>");
+
+
+          }
+        } catch (error) {
+          console.log("Error in searching user - " + error);
+        }
+      };
+      findUser();
+
+
     }
   });
 });
+
 app.post("/search", (req, res) => {
   const searchUser = req.body.search;
   const findUser = async () => {
