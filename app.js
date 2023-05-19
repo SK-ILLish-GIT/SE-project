@@ -524,6 +524,36 @@ app.post("/search", (req, res) => {
   findUser();
 });
 
+//************************************************************DELETE**********************
+
+app.post("/info/delete", (req, res) => {
+  if (req.user) {
+    const deleteDocument = async () => {
+      try {
+        const foundUser = await user.findOne({ username: req.body.username });
+        if (foundUser) {
+          await user.deleteOne({ username: foundUser.username });
+          console.log("User deleted:", foundUser.username);
+          res.redirect("/home"); // Redirect to the home page or any other appropriate page
+        } else {
+          console.log("User not found");
+          res.redirect("/home"); // Redirect to the home page or any other appropriate page
+        }
+      } catch (e) {
+        console.log(e);
+        res.status(500).send("Internal Server Error");
+      }
+    };
+    deleteDocument();
+  } else {
+    res.redirect("/sign-in");
+  }
+});
+
+
+
+//****************************************************************************************
+
 // *********************************************update************************************
 // *********************************************update************************************
 app.post("/info/change", (req, res) => {
@@ -644,7 +674,7 @@ app.post("/change", (req, res) => {
 
 // ***************************************************************************************
 
-//************************************************************DELETE**********************
+
 
 
 

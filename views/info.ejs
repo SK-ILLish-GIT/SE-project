@@ -118,16 +118,10 @@
               </form>
             </button>
             <div class="row">
+              
+              <%}%>
+          <% if(button===1){%>
               <div class="col">
-                <button class="delete-button">
-                  <a href="">
-                    <i class="fas fa-edit"></i> Delete Profile
-                  </a>
-                </button>
-              </div>
-              <div class="col">
-                <%}%>
-            <% if(button===1){%>
               <form action="/info/change" method="POST">
                 <!-- Other input fields -->
                 <input type="hidden" name="username" value="<%= currUser.username %>">
@@ -135,8 +129,18 @@
                   <i class="fas fa-edit"></i> Edit Profile
                 </button>
               </form>
-                <%}%>
+            </div>
+               
+              
+              <div class="col">
+                <form action="/info/delete" method="POST">
+                  <input type="hidden" name="username" value="<%= currUser.username %>">
+                <button class="delete-button" type="submit">
+                    <i class="fas fa-edit"></i> Delete Profile
+                </button>
+              </form>
               </div>
+                <%}%>
             </div>
                         
                     </div>
