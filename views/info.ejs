@@ -92,29 +92,50 @@
          rgba(63, 175, 255, 0.755)94%), url(<%=currUser.profilePic%>);
         height: 500px;background-size:contain;background-position:center;background-repeat: no-repeat ;background-size: auto 100%;"></div>
       <div class="card social-prof">
-        <div class="card-body">
-          <div class="wrapper">
+        <div class="card-body" style="
+    width: 70vw;">
+          <div class=" wrapper">
             <img src=<%=currUser.profilePic%> alt="" id="photo" class="user-profile">
-            <%if(uploadPhoto===1){%>
-              <form action="/info/upload" method="POST" enctype="multipart/form-data">
-                <input type="file" id="photo_label" name="profileImage">
-                <label for="photo_label" id="uploadButton">Choose Photo</label>
-                <input type="submit" value="Upload" />
-              </form>
-            <%}%>
             <h3><%=currUser.basicInfo.name%> </h3>
             <p><%= currUser.username%></p>
             <!-- <form action="/change" method="post">
                         <button type="submit">EDIT</button>
                         </form> -->
             <!-- <a class="overlay-content_left_rotation" href="/change">Contact</a> -->
-            <% if(button===1){%>
+            <%if(uploadPhoto===1){%>
             <button class="edit-button">
-              <a href="/change">
-                <i class="fas fa-edit"></i> Edit Profile
-              </a>
+              <form action="/info/upload" method="POST" enctype="multipart/form-data">
+                <input type="file" id="photo_label" name="profileImage">
+                <div class="row">
+                  <div class="col">
+                    <label for="photo_label">Choose Photo</label>
+                    <button></button>
+                  </div>
+                  <div class="col submit-wrapper">
+                    <input type="submit" value="Upload" />
+                  </div>
+                </div>
+              </form>
             </button>
-            <%}%>
+            <div class="row">
+              <div class="col">
+                <button class="delete-button">
+                  <a href="">
+                    <i class="fas fa-edit"></i> Delete Profile
+                  </a>
+                </button>
+              </div>
+              <div class="col">
+                <%}%>
+            <% if(button===1){%>
+                <button class="editt-button">
+                  <a href="/change">
+                    <i class="fas fa-edit"></i> Edit Profile
+                  </a>
+                </button>
+                <%}%>
+              </div>
+            </div>
                         
                     </div>
 
@@ -134,100 +155,100 @@
                                         <i class="fas fa-birthday-cake mr-2" style="color: #0dd324;"></i>
                                         <span><%= currUser.basicInfo.birthdate.toLocaleDateString('en-US', { day: '2-digit', month: 'long', year: 'numeric' }) %></span>
 
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="social-info">
+                <i class="fas fa-map-marker-alt mr-2" style="color: #0dd324;"></i>
+                <span><%=currUser.addressInfo.address+", "+currUser.addressInfo.city+", "+currUser.addressInfo.state+"-"+currUser.addressInfo.zipCode %></span>
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="col-6">
-          <div class="social-info">
-            <i class="fas fa-map-marker-alt mr-2" style="color: #0dd324;"></i>
-            <span><%=currUser.addressInfo.address+", "+currUser.addressInfo.city+", "+currUser.addressInfo.state+"-"+currUser.addressInfo.zipCode %></span>
+          <div class="row">
+            <div class="col-6">
+              <div class="social-info">
+                <i class="fas fas fa-users mr-2" style="color: #0dd324;"></i>
+                <span><%=currUser.basicInfo.gender%></span>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="social-info">
+                <i class="fas fa-briefcase mr-2" style="color: #0dd324;"></i>
+                <span>Student</span>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-6">
-          <div class="social-info">
-            <i class="fas fas fa-users mr-2" style="color: #0dd324;"></i>
-            <span><%=currUser.basicInfo.gender%></span>
-          </div>
-        </div>
-        <div class="col-6">
-          <div class="social-info">
-            <i class="fas fa-briefcase mr-2" style="color: #0dd324;"></i>
-            <span>Student</span>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-6">
-          <div class="social-info">
+          <div class="row">
+            <div class="col-6">
+              <div class="social-info">
 
-            <i class="fas fas fa-mobile mr-2" style="color: #0dd324;"></i>
-            <span><%= currUser.basicInfo.phoneNo%></span>
+                <i class="fas fas fa-mobile mr-2" style="color: #0dd324;"></i>
+                <span><%= currUser.basicInfo.phoneNo%></span>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="social-info">
+                <i class="fas fas fa-envelope mr-2" style="color: #0dd324;"></i>
+                <span><%= currUser.basicInfo.email%></span>
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="col-6">
-          <div class="social-info">
-            <i class="fas fas fa-envelope mr-2" style="color: #0dd324;"></i>
-            <span><%= currUser.basicInfo.email%></span>
-          </div>
+
         </div>
       </div>
-
     </div>
-  </div>
-  </div>
-  <div class="col-lg-6">
-    <div class="card info-card" style="height:380px">
-      <div class="card-body">
-        <h2 class="text-blue">Tecnical Skills</h2>
-        <%for(let i=0;i<currUser.skillsInfo.technicalSkills.length;i++){%>
-        <%if(i%2==0){%>
-        <div class="row">
-          <div class="col-lg-6">
-            <h4><%=currUser.skillsInfo.technicalSkills[i]%></h4>
-
-          </div>
-          <%}else{%>
-          <div class="col-lg-6">
-            <h4><%=currUser.skillsInfo.technicalSkills[i]%></h4>
-            <div class="mb-3">
+    <div class="col-lg-6">
+      <div class="card info-card" style="height:380px">
+        <div class="card-body">
+          <h2 class="text-blue">Tecnical Skills</h2>
+          <%for(let i=0;i<currUser.skillsInfo.technicalSkills.length;i++){%>
+          <%if(i%2==0){%>
+          <div class="row">
+            <div class="col-lg-6">
+              <h4><%=currUser.skillsInfo.technicalSkills[i]%></h4>
 
             </div>
+            <%}else{%>
+            <div class="col-lg-6">
+              <h4><%=currUser.skillsInfo.technicalSkills[i]%></h4>
+              <div class="mb-3">
+
+              </div>
+            </div>
           </div>
-        </div>
-        <%}%>
+          <%}%>
 
 
                             <% } %>
-        <h2 class="text-blue">Non-Tecnical Skills</h2>
-        <%for(let i=0;i<currUser.skillsInfo.nontechnicalSkills.length;i++){%>
-        <%if(i%2==0){%>
-        <div class="row">
-          <div class="col-lg-6">
-            <h4><%=currUser.skillsInfo.nontechnicalSkills[i]%></h4>
-
-          </div>
-          <%}else{%>
-          <div class="col-lg-6">
-            <h4><%=currUser.skillsInfo.nontechnicalSkills[i]%></h4>
-            <div class="mb-3">
+          <h2 class="text-blue">Non-Tecnical Skills</h2>
+          <%for(let i=0;i<currUser.skillsInfo.nontechnicalSkills.length;i++){%>
+          <%if(i%2==0){%>
+          <div class="row">
+            <div class="col-lg-6">
+              <h4><%=currUser.skillsInfo.nontechnicalSkills[i]%></h4>
 
             </div>
+            <%}else{%>
+            <div class="col-lg-6">
+              <h4><%=currUser.skillsInfo.nontechnicalSkills[i]%></h4>
+              <div class="mb-3">
+
+              </div>
+            </div>
           </div>
-        </div>
-        <%}%>
+          <%}%>
                             <% } %>
-        <h2 class="text-blue">Hobbies</h2>
-        <div class="row">
-          <div class="col-lg-6">
-            <%for(let i=0;i<currUser.hobbiesInfo.sports.length;i++){%>
-            <h4><%=currUser.hobbiesInfo.sports[i]%></h4>
-            <%}%>
+          <h2 class="text-blue">Hobbies</h2>
+          <div class="row">
+            <div class="col-lg-6">
+              <%for(let i=0;i<currUser.hobbiesInfo.sports.length;i++){%>
+              <h4><%=currUser.hobbiesInfo.sports[i]%></h4>
+              <%}%>
                             </div>
                             <div class="col-lg-6">
                               <%for(let i=0;i<currUser.hobbiesInfo.others.length;i++){%>
-            <h4><%=currUser.hobbiesInfo.others[i]%></h4>
-            <%}%>
+              <h4><%=currUser.hobbiesInfo.others[i]%></h4>
+              <%}%>
                             </div>
                             </div>
                         </div>
@@ -242,52 +263,52 @@
                             <div class="row">
                                 <div class="col-lg-6">
                                     <h4><strong><%= currUser.educationInfo.cName %></strong></h4>
-            <p><%= currUser.educationInfo.cStart.toLocaleDateString('en-US', { year: 'numeric', month: 'long' }) %> to 
-              <%= currUser.educationInfo.cEnd.toLocaleDateString('en-US', { year: 'numeric', month: 'long' }) %> </p>
+              <p><%= currUser.educationInfo.cStart.toLocaleDateString('en-US', { year: 'numeric', month: 'long' }) %> to
+                <%= currUser.educationInfo.cEnd.toLocaleDateString('en-US', { year: 'numeric', month: 'long' }) %> </p>
 
-          </div>
-          <div class="col-lg-6">
-            <h4><strong>Branch: <%= currUser.educationInfo.cBranch %></strong></h4>
-            <h4><strong>CGPA: <%= currUser.educationInfo.cCg %></strong></h4>
-          </div>
-          <div class="col-lg-6">
-            <h4><strong><%= currUser.educationInfo.hsName %></strong></h4>
-            <p><%= currUser.educationInfo.hsStart.toLocaleDateString('en-US', { year: 'numeric', month: 'long' }) %> to 
-              <%= currUser.educationInfo.hsEnd.toLocaleDateString('en-US', { year: 'numeric', month: 'long' }) %> </p>
-          </div>
-          <div class="col-lg-6">
-            <h4><strong>Percentage: <%= currUser.educationInfo.hsPercentage %>% </strong></h4>
+            </div>
+            <div class="col-lg-6">
+              <h4><strong>Branch: <%= currUser.educationInfo.cBranch %></strong></h4>
+              <h4><strong>CGPA: <%= currUser.educationInfo.cCg %></strong></h4>
+            </div>
+            <div class="col-lg-6">
+              <h4><strong><%= currUser.educationInfo.hsName %></strong></h4>
+              <p><%= currUser.educationInfo.hsStart.toLocaleDateString('en-US', { year: 'numeric', month: 'long' }) %> to
+                <%= currUser.educationInfo.hsEnd.toLocaleDateString('en-US', { year: 'numeric', month: 'long' }) %> </p>
+            </div>
+            <div class="col-lg-6">
+              <h4><strong>Percentage: <%= currUser.educationInfo.hsPercentage %>% </strong></h4>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-  <div class="col-lg-6">
-    <div class="card info-card" style="height:380px">
-      <div class="card-body">
-        <h2 class="text-blue">Projects</h2>
+    <div class="col-lg-6">
+      <div class="card info-card" style="height:380px">
+        <div class="card-body">
+          <h2 class="text-blue">Projects</h2>
 
-        <%for(let i=0;i<currUser.projectInfo.name.length;i++){%>
-        <%if(currUser.projectInfo.name[i]===null){%>
-        <%break;}%>
-        <div class="row r2">
-          <div>
-            <h4 class="ProName"> <%=currUser.projectInfo.name[i]%></h4>
+          <%for(let i=0;i<currUser.projectInfo.name.length;i++){%>
+          <%if(currUser.projectInfo.name[i]===null){%>
+          <%break;}%>
+          <div class="row r2">
+            <div>
+              <h4 class="ProName"> <%=currUser.projectInfo.name[i]%></h4>
+            </div>
+            <div class="col-4">
+              <i class="fas fa-laptop-code mr-2" style="color: #0dd324;"></i>
+              <span>Domain: <%=currUser.projectInfo.domain[i]%></span>
+            </div>
+            <div class="col-lg-4">
+              <i class="fas fa-cubes"></i>
+              <span>Tech Stack: <%=currUser.projectInfo.technologies[i]%></span>
+            </div>
+            <div class="col-lg-4">
+              <i class="fas fa-code-branch"></i>
+              <a href=<%=currUser.projectInfo.githubRepo[i]%>>Github Repo</a>
+            </div>
           </div>
-          <div class="col-4">
-            <i class="fas fa-laptop-code mr-2" style="color: #0dd324;"></i>
-            <span>Domain: <%=currUser.projectInfo.domain[i]%></span>
-          </div>
-          <div class="col-lg-4">
-            <i class="fas fa-cubes"></i>
-            <span>Tech Stack: <%=currUser.projectInfo.technologies[i]%></span>
-          </div>
-          <div class="col-lg-4">
-            <i class="fas fa-code-branch"></i>
-            <a href=<%=currUser.projectInfo.githubRepo[i]%>>Github Repo</a>
-          </div>
-        </div>
-        <%}%>
+          <%}%>
 
 
                         </div>
