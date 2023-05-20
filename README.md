@@ -1,5 +1,5 @@
 # SE-Project# SE-project
-[Readme.txt.pdf](https://github.com/SK-ILLish-GIT/SE-project/files/11521654/Readme.txt.pdf)
+[Readme.pdf](https://github.com/SK-ILLish-GIT/SE-project/files/11521654/Readme.txt.pdf)
 SRS
 [Software Req Specs.pdf](https://github.com/SK-ILLish-GIT/SE-project/files/11521657/Software.Req.Specs.pdf)
 Tracebility Matrix 
